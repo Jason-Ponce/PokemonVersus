@@ -1,0 +1,13 @@
+.wrapper{
+    @include flexAlignCenter;
+    background-color: $tertiary-color-light;
+    width: 30vw;
+    height: 30vw;
+    margin: 25vh auto;
+}
+
+.about{
+    background-color: $secondary-color-light;
+}
+
+

@@ -1,0 +1,18 @@
+//Color-scheme taken from Squirtle https://pokepalettes.com/#squirtle
+$primary-color: #5a9da6;
+$primary-color-light: #8bc6cf;
+$primary-color-dark: #2a7483;
+
+$secondary-color-light: #ffe79c;
+$secondary-color: #e7ad5a;
+$secondary-color-dark: #ce7c29;
+
+$tertiary-color: #842a00;
+$tertiary-color-light: #be6b00;
+$tertiary-color-dark: #632a00;
+
+$accent-color: #111110;
+
+body{
+    background-color: $secondary-color;
+}

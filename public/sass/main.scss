@@ -1,4 +1,30 @@
-#test{
-    color: red;
-    font-size: 55px;
-}
+@import
+  'abstracts/colors',
+  'abstracts/variables',
+  'abstracts/functions',
+  'abstracts/mixins';
+
+@import
+  'base/reset',
+  'base/typography';
+
+@import
+  'layout/navigation',
+  'layout/grid',
+  'layout/header',
+  'layout/footer',
+  'layout/sidebar',
+  'layout/forms';
+
+@import
+  'components/buttons';
+
+@import
+  'pages/home';
+
+@import
+  'themes/theme';
+
+
+
+

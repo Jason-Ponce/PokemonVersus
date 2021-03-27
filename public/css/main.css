@@ -1,4 +1,78 @@
-#test {
-  color: red;
-  font-size: 55px;
+@import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,600;1,700;1,800;1,900&display=swap");
+body {
+  background-color: #e7ad5a;
+}
+
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+* {
+  font-family: 'Press Start 2P', cursive;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Nunito', sans-serif;
+}
+
+.navbar {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-column-gap: 1rem;
+          column-gap: 1rem;
+  margin: 1.2rem 2rem .5rem 2rem;
+  padding-bottom: .2rem;
+  padding-right: 1rem;
+  border-bottom: 3px whitesmoke solid;
+}
+
+.navbar a {
+  text-decoration: none;
+}
+
+.navbar a:hover {
+  color: white;
+}
+
+.navbar a:visited {
+  color: whitesmoke;
+}
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: #2a7483;
+  width: 100vw;
+}
+
+.wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  background-color: #be6b00;
+  width: 30vw;
+  height: 30vw;
+  margin: 25vh auto;
+}
+
+.about {
+  background-color: #ffe79c;
 }
