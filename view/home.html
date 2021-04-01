@@ -35,28 +35,32 @@
 <body>
     <header class="header">
         <nav class="navbar">
-            <a href="/">PokeMon</a>
-            <ul>
-                <li >Search</li>
-                <li><input type="text"></li>
-            </ul>
-            <a href="/test">Test</a>
+            <a href="/">PokeMon App</a>
+            <div class="search-bar">
+                <a href="/test">Search</a>
+                <form action="#" method="post">
+                    <input type="text" placeholder="Name or number">
+                </form>
+            </div>
         </nav>
     </header>
-    <main>
+    <div class="divider"></div>
+    <main class="main">
         <div class="wrapper">
-            <H1>PokeMon App</H1>
-            <form action="#" method="GET">
-                <label for="pokemon"></label>
-                <input type="text" id="pokemon" name="pokemon" placeholder="Squirtle...">
-                <button type="submit"><i data-feather="circle"></i></button>
+            <form action="#" method="POST" class="form-wrapper">
+                <H1>PokeMon App</H1>
+                <label for="pokemon">I choose you</label>
+                <span>
+                    <input type="text" id="pokemon" name="pokemon" placeholder="Name or number">
+                    <button type="submit" class="continue"><img src="/img/icons/enter.svg" alt=""></button>
+                </span>
             </form>
         </div>
+        <section class="about">
+            <h2>About the app</h2>
+            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Excepturi eos voluptate quas asperiores laboriosam, perspiciatis ratione ad odit? Labore reprehenderit eius distinctio voluptatum placeat unde recusandae est consectetur nulla quisquam. <img src="/img/icons/enter.svg" alt="" class="continue"></p>
+        </section>
     </main>
-    <section class="about">
-        <h2>About the app</h2>
-        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Excepturi eos voluptate quas asperiores laboriosam, perspiciatis ratione ad odit? Labore reprehenderit eius distinctio voluptatum placeat unde recusandae est consectetur nulla quisquam.</p>
-    </section>
     <script src="/img/feather-icons/dist/feather.js" ></script>
 </body>
 </html>
