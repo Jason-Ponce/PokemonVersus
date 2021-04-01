@@ -1,22 +1,36 @@
 .navbar{
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     column-gap: 1rem;
-    margin: 1.2rem 2rem .5rem 2rem;
-    padding-bottom: .2rem;
-    padding-right: 1rem;
-    border-bottom: 3px whitesmoke solid;
+    padding: 1.5rem 2rem 1.5rem 3rem;
+
+    .search-bar{
+        @include flexAlignCenter;
+        flex-direction: row;
+        color: inherit;
+        column-gap: 1rem;
+        vertical-align: middle;
+        
+        div{
+            vertical-align: middle;
+        }
+
+        a{
+            font-size: 75%;
+        }
+    }
 
     a{
         text-decoration: none;
+        @include flexAlignCenter;
     }
 
     a:hover{
-        color: white;
+        color: inherit;
     }
 
     a:visited{
-        color: whitesmoke;
+        color: inherit;
     }
 
 }
