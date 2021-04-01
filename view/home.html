@@ -22,18 +22,45 @@
     <link rel="apple-touch-icon" sizes="180x180" href="/img/favicon/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/img/favicon/favicon-16x16.png">
-    <link rel="manifest" href="/site.webmanifest">
+    <!-- <link rel="manifest" href="/site.webmanifest"> -->
     <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
     <meta name="msapplication-TileColor" content="#da532c">
     <meta name="theme-color" content="#ffffff">
     <link rel="stylesheet" href="/css/main.css">
     <!-- Use of defer mean js file will load after html loads -->
     <script defer src="/js/main.js"></script>
+    
     <title>PokeDex</title>
 </head>
 <body>
-    <H1>HomePage!</H1>
-    <a href="test">Test Page!</a>
-    <div id="test">Hello</div>
+    <header class="header">
+        <nav class="navbar">
+            <a href="/">PokeMon App</a>
+            <div class="search-bar">
+                <a href="/test">Search</a>
+                <form action="#" method="post">
+                    <input type="text" placeholder="Name or number">
+                </form>
+            </div>
+        </nav>
+    </header>
+    <div class="divider"></div>
+    <main class="main">
+        <div class="wrapper">
+            <form action="#" method="POST" class="form-wrapper">
+                <H1>PokeMon App</H1>
+                <label for="pokemon">I choose you</label>
+                <span>
+                    <input type="text" id="pokemon" name="pokemon" placeholder="Name or number">
+                    <button type="submit" class="continue"><img src="/img/icons/enter.svg" alt=""></button>
+                </span>
+            </form>
+        </div>
+        <section class="about">
+            <h2>About the app</h2>
+            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Excepturi eos voluptate quas asperiores laboriosam, perspiciatis ratione ad odit? Labore reprehenderit eius distinctio voluptatum placeat unde recusandae est consectetur nulla quisquam. <img src="/img/icons/enter.svg" alt="" class="continue"></p>
+        </section>
+    </main>
+    <script src="/img/feather-icons/dist/feather.js" ></script>
 </body>
 </html>
