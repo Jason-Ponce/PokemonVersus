@@ -1,0 +1,32 @@
+//Color-scheme taken from Squirtle https://pokepalettes.com/#squirtle
+// $primary-color: #5a9da6;
+// $primary-color-light: #8bc6cf;
+// $primary-color-dark: #2a7483; //header
+
+// $secondary-color-light: #ffe79c; //about
+// $secondary-color: #e7ad5a;  //body
+// $secondary-color-dark: #ce7c29;
+
+// $tertiary-color: #842a00;
+// $tertiary-color-light: #be6b00; //home-wrapper
+// $tertiary-color-dark: #632a00;
+
+// $accent-color: #111110;
+
+$primary-color: #5a9da6;
+$primary-color-light: #8bc6cf;
+$primary-color-dark: #d4dcd7; //header
+
+$secondary-color-light: #d4dcd7; //about
+$secondary-color: #A9A9A9;  //body
+$secondary-color-dark: #ce7c29;
+
+$tertiary-color: #842a00;
+$tertiary-color-light: #d4dcd7; //home-wrapper
+$tertiary-color-dark: #632a00;
+
+$accent-color: #111110;
+
+body{
+    background-color: $secondary-color;
+}

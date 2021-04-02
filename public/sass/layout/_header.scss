@@ -1,0 +1,14 @@
+.header{
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: $primary-color-dark;
+    width: 100%;
+    max-height: 12.5vh;
+    @include pokeBorder;
+
+}
+
+.divider{
+    height: 12.5vh;
+}

@@ -1,0 +1,36 @@
+@mixin flexAlignCenter {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+@mixin flexRow {
+    display: flex;
+    flex-direction: row;
+}
+
+// @mixin cssGrid( $row-gap, $x-axis, $column, $y-axis) {
+//     display: grid;
+//     grid-auto-rows: auto;
+//     row-gap: $row-gap;
+//     align-items: $x-axis;
+//     grid-template-columns: $column;
+//     justify-content: $y-axis;
+// }
+
+@mixin cssGrid( $row-gap, $column) {
+    display: grid;
+    grid-auto-rows: auto;
+    row-gap: $row-gap;
+    grid-template-columns: $column;
+}
+
+@mixin pokeBorder{
+    border-style: solid;
+    border-image-slice:11% 11% 11% 11%;
+    border-image-width:1.5em 1.5em 1.5em 1.5em;
+    border-image-outset:0px 0px 0px 0px;
+    border-image-repeat:round round;
+    border-image-source: url(/img/icons/border.svg);
+}

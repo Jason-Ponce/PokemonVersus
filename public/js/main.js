@@ -1,1 +1,2 @@
-alert("Testing the js file")
+// Used for feather-icons
+feather.replace()
