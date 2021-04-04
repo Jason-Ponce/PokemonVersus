@@ -109,7 +109,7 @@ body {
   width: 100%;
   max-height: 12.5vh;
   border-style: solid;
-  border-image-slice: 11% 11% 11% 11%;
+  border-image-slice: 11.5% 11.5% 11.5% 11.5%;
   border-image-width: 1.5em 1.5em 1.5em 1.5em;
   border-image-outset: 0px 0px 0px 0px;
   border-image-repeat: round round;
@@ -193,7 +193,7 @@ button {
   margin-top: 1rem;
   margin-bottom: 1rem;
   border-style: solid;
-  border-image-slice: 11% 11% 11% 11%;
+  border-image-slice: 11.5% 11.5% 11.5% 11.5%;
   border-image-width: 1.5em 1.5em 1.5em 1.5em;
   border-image-outset: 0px 0px 0px 0px;
   border-image-repeat: round round;
@@ -209,11 +209,6 @@ button {
       grid-template-columns: 1;
   margin: auto;
   padding: 15vw;
-  border-image-slice: 6% 6% 6% 5%;
-  border-image-width: 1.5em 1.5em 1.5em 1.5em;
-  border-image-outset: 0px 0px 0px 0px;
-  border-image-repeat: round round;
-  border-image-source: url(/img/icons/border.svg);
 }
 
 .wrapper .form-wrapper * {
@@ -248,7 +243,7 @@ button {
   background-color: #d4dcd7;
   padding: 1rem;
   border-style: solid;
-  border-image-slice: 11% 11% 11% 11%;
+  border-image-slice: 11.5% 11.5% 11.5% 11.5%;
   border-image-width: 1.5em 1.5em 1.5em 1.5em;
   border-image-outset: 0px 0px 0px 0px;
   border-image-repeat: round round;
