@@ -1,7 +1,7 @@
 .wrapper{
     @include flexAlignCenter;
     background-color: $tertiary-color-light;
-    width: fit-content;
+    // width: fit-content;
     height: 50vw;
     margin: auto;
     margin-top: 1rem;
