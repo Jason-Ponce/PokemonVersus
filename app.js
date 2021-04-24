@@ -11,13 +11,17 @@ app.use(express.urlencoded({
     extended: true
   }))
 
+  app.use(express.json());
+
 // ===================Routes=========================
 const homeRoute = require('./routes/home.js')
 const testRoute = require('./routes/test.js')
 const aboutRoute = require('./routes/about.js')
+const searchRoute = require('./routes/search.js')
 app.use('/', homeRoute);
 app.use('/test', testRoute);
 app.use('/about', aboutRoute);
+app.use('/search', searchRoute);
 
 
 //each route needs [var/let/const] [nameofRoute] = require('./routes/[js file name]')
