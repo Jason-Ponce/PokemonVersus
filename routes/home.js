@@ -8,11 +8,12 @@ router.get('/', (req, res) => {
 });
 
 router.post('/', (req, res) => {
+    console.log('running post home.js')
     const pokemon = req.body.pokemon
-    const pokemonTwo = req.body.pokemonTwo
     P.getPokemon(pokemon, res);
     console.log(JSON.stringify(req.body) +' req.body from homejs');
     res.end()
   })
+
 
 module.exports = router;

@@ -30,15 +30,17 @@ function getPokemon(name, res){
       //     return console.log('jason sucks');
       //   }
       // });
-        let abilities = response.abilities;
-        let forms = response.forms;
-        let gameIndices = response.game_indices;
-        let heldItems = response.held_items;
-        let moves = response.moves;
-        let species = response.species;
-        let sprites = response.sprites;
-        let stats = response.stats;
-        let types = response.types;
+        // let abilities = response.abilities;
+        // let forms = response.forms;
+        // let gameIndices = response.game_indices;
+        // let heldItems = response.held_items;
+        // let moves = response.moves;
+        // let species = response.species;
+        // let sprites = response.sprites;
+        // let stats = response.stats;
+        // let types = response.types;
+
+        return ('punk ass bitch')
     } else {
         return ("pokemon error!!!!");
     }

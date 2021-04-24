@@ -7,23 +7,38 @@ const P = require('../middleware/api.js');
 
 
 router.get('/', (req, res) => {
-    //res.sendFile(path.join(__dirname + '/../view/search.html'));
-    res.render('/ejs route here????');
+  res.sendFile(path.join(__dirname + '/../view/home.html'));
+    // res.render('/ejs route here????');
+
 });
 
 router.post('/', (req, res) => {
-    const pokemon = req.body.pokemon
-    let lowerPoke = validateForm(pokemon);
-    P.getPokemon(lowerPoke, res);
-    console.log(lowerPoke + ' pokemon lowercase')
-    console.log(JSON.stringify(req.body) +' req.body');
-    res.end()
-  })
+  console.log('u workin or not?')
+  const pokemon = req.body.pokemon
+  let lowerPoke = validateForm(pokemon);
+  let response = P.getPokemon(lowerPoke, res);
+  console.log(JSON.stringify(response))
+  let abilities = response.abilities;
+  let forms = response.forms;
+  let gameIndices = response.game_indices;
+  let heldItems = response.held_items;
+  let moves = response.moves;
+  let species = response.species;
+  let sprites = response.sprites;
+  let stats = response.stats;
+  let types = response.types;
 
-  function validateForm(input) {
-    let lowerInput = input.toLowerCase();
-    return (lowerInput);
-  }
+  console.log(lowerPoke + ' pokemon lowercase')
+  console.log(JSON.stringify(req.body) +' req.body from search.js');
+  res.sendFile(path.join(__dirname + '/../view/search.html'));
+})
+
+function validateForm(input) {
+  let lowerInput = input.toLowerCase();
+  return (lowerInput);
+}
+
+
 
 // you export the router variable to have access to the routes in the app.js file
 module.exports = router;
