@@ -1,6 +1,11 @@
-.continue{
+.continue-90{
     transform: rotate(90deg);
     
+    animation: flickerAnimation 1.5s infinite;
+
+}
+
+.continue{    
     animation: flickerAnimation 1.5s infinite;
 
 }

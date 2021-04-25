@@ -6,9 +6,11 @@
     width: 100%;
     max-height: 12.5vh;
     @include pokeBorder;
+    z-index: 3;
 
 }
 
 .divider{
     height: 12.5vh;
+    width: 100%;
 }
