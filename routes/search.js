@@ -4,6 +4,7 @@ const express = require('express');
 const router = express.Router();
 const path = require('path');
 const P = require('../middleware/api.js');
+//const L = require('../middleware/lookup.js');
 
 
 router.get('/', (req, res) => {
@@ -12,25 +13,28 @@ router.get('/', (req, res) => {
 
 });
 
-router.post('/', (req, res) => {
-  console.log('u workin or not?')
+router.post('/', async (req, res) => {
+  console.log("/search POST starting...")
   const pokemon = req.body.pokemon
   let lowerPoke = validateForm(pokemon);
-  let response = P.getPokemon(lowerPoke, res);
-  console.log(JSON.stringify(response))
-  let abilities = response.abilities;
-  let forms = response.forms;
-  let gameIndices = response.game_indices;
-  let heldItems = response.held_items;
-  let moves = response.moves;
-  let species = response.species;
-  let sprites = response.sprites;
-  let stats = response.stats;
-  let types = response.types;
+  const data = await P.apiCall(lowerPoke);
 
-  console.log(lowerPoke + ' pokemon lowercase')
-  console.log(JSON.stringify(req.body) +' req.body from search.js');
+  let abilities = data.abilities;
+  let forms = data.forms;
+  let gameIndices = data.game_indices;
+  let heldItems = data.held_items;
+  let moves = data.moves;
+  let species = data.species;
+  let sprites = data.sprites;
+  let stats = data.stats;
+  let types = data.types;
+  
+  console.log(`Did you do a good job ${data.name.charAt(0).toUpperCase()+ data.name.slice(1)}?`)
+  // console.log(JSON.stringify(data.abilities.ability));
+  console.log(stats)
   res.sendFile(path.join(__dirname + '/../view/search.html'));
+  console.log("If pokemon name is shown before POST ending, it works!")
+  console.log("/search POST ending...")
 })
 
 function validateForm(input) {

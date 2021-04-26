@@ -20,6 +20,8 @@
     "ejs": "^3.1.6",
     "express": "^4.17.1",
     "feather-icons": "^4.28.0",
+    "mongodb": "^3.6.6",
+    "mongoose": "^5.12.5",
     "node": "^15.10.0",
     "pokedex-promise-v2": "^3.3.0",
     "sass": "^1.32.8"
