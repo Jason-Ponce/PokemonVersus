@@ -2,36 +2,13 @@
     @include flexAlignCenter;
     background-color: $tertiary-color-light;
     width: fit-content;
-    height: 50vw;
+    height: fit-content;
     margin: auto;
     margin-top: 1rem;
     margin-bottom: 1rem;
     @include pokeBorder;
     
     
-
-    .form-wrapper{
-        @include cssGrid(1rem, 1 );
-        margin: auto;
-        padding: 15vw;
-        border-image-slice:6% 6% 6% 5%;
-        border-image-width:1.5em 1.5em 1.5em 1.5em;
-        border-image-outset:0px 0px 0px 0px;
-        border-image-repeat:round round;
-        border-image-source: url(/img/icons/border.svg);
-
-        *{
-            @include flexAlignCenter;
-        }
-
-
-
-        span{
-            display: flex;
-            flex-direction: row;
-            column-gap: 1rem;
-        }
-    }
 
 }
 
