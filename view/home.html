@@ -38,8 +38,9 @@
             <a href="/">PokeMon App</a>
             <div class="search-bar">
                 <a href="/test">Search</a>
-                <form action="#" method="post">
-                    <input type="text" placeholder="Name or number">
+                <form action="/search" method="post">
+                    <input type="text" placeholder="Name or number" name="pokemontwo">
+                    <button type="submit" class="continue"><img src="/img/icons/enter.svg" alt=""></button>
                 </form>
             </div>
         </nav>
@@ -47,12 +48,12 @@
     <div class="divider"></div>
     <main class="main">
         <div class="wrapper">
-            <form action="#" method="POST" class="form-wrapper">
+            <form action="/search" method="POST" class="form-wrapper">
                 <H1>PokeMon App</H1>
                 <label for="pokemon">I choose you</label>
                 <span>
                     <input type="text" id="pokemon" name="pokemon" placeholder="Name or number">
-                    <button type="submit" class="continue"><img src="/img/icons/enter.svg" alt=""></button>
+                    <button type="submit" id="search-btn" class="continue"><img src="/img/icons/enter.svg" alt=""></button>
                 </span>
             </form>
         </div>
