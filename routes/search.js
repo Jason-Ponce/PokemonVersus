@@ -37,11 +37,12 @@ router.post('/', async (req, res) => {
   let stats = data.stats;
   let types = data.types;
   let weight = data.weight;
+  
+  console.log(`Did you do a good job ${data.name.charAt(0).toUpperCase()+ data.name.slice(1)}?`)
 
-  // console.log(`Did you do a good job ${data.name.charAt(0).toUpperCase()+ data.name.slice(1)}?`)
-  // console.log(JSON.stringify(data.abilities.ability));
-  console.log(types[1])
-  // res.sendFile(path.join(__dirname + '/../view/search.html'));
+  for (stat in abilities){
+    console.log(abilities[stat]['ability']['name'])
+  }
   console.log("If pokemon name is shown before POST ending, it works!")
   console.log("/search POST ending...")
   res.render('search', {

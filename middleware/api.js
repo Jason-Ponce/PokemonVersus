@@ -28,8 +28,24 @@ function apiCall(name){
   })
 }
 
+function getSpecies(name){
+  return new Promise((resolve, reject) => {
+    if (name){
+      P.getPokemonSpeciesByName(name, function (api, error){
+        if (!error) {
+          resolve(api)
+        } else {
+          reject(error);
+        }
+      });
+    } else {
+      reject("pokemon name not entered")
+    }
+  })
+}
 
-module.exports = {apiCall};
+
+module.exports = {apiCall, getSpecies};
 
 // create two new routes - search results for pokemon, one for two pokemon
 
