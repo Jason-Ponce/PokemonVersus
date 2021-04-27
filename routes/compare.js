@@ -5,40 +5,47 @@ const P = require('../middleware/api.js');
 
 router
     .route("/")
-    .get((req, res) => {
-      //const pokemon = req.body.pokemon;
-      // console.log(pokemon +'pokemon in get')
-      //getStats(stat1);
-      comparePokemon(stat1, stat2);
+    .post(async (req, res) => {
+      console.log(req.body.pokemonOne +'pokemon in get')
+      const pokemon = req.body.pokemonOne;
+      if (pokemon){
+      await getStats(pokemon);
+      comparePokemon(pokemon, stat2);
+      } else {
+        console.log('Cannot compare empty field')
+        res.render('home')
+      }
       res.render('compare');
     })
-    .post((req, res)=> {
+    .get((req, res) => {
       res.render('compare');
     })
 
-var stat1 = 311;
+var stat1 = 0;
 var stat2 = 300;
 
 function getStats(pokemon){
-  console.log("COMPARE starting...")
-  // const pokemon = req.body.pokemon;
+  console.log("getting stats...")
+  // const pokemon = req.body.pokemonOne;
   let lowerPoke = validateForm(pokemon);
   console.log(lowerPoke)
-  const data = P.apiCall(lowerPoke);
+  const data = P.apiCall(pokemon);
   let stats = data.stats;
+  console.log(data)
 
   for (stat in stats){
     stat1 += stats[stat]['base_stat']
   }
-  console.log(stat1)
-  console.log("COMPARE ending...")
+  console.log(stat1 + 'stat1')
+  console.log("getting stats ending...")
 }
 
 function comparePokemon(first, second){
+  console.log('comparing...')
     console.log(first)
     if (first && second){
-        if (first > secondStats) {
-            console.log('Pokemon 1 is the stronger Pokemon?')
+        if (first > second) {
+            console.log('Pokemon 1 is the stronger Pokemon')
         } else 
             console.log('Pokemon 2 is the stronger Pokemon')
     } else 
