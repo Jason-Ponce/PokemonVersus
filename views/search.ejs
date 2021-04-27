@@ -38,32 +38,64 @@
             <a href="/">PokeMon App</a>
             <div class="search-bar">
                 <a href="/test">Search</a>
-                <form action="#" method="post">
-                    <input type="text" placeholder="Name or number">
+                <form action="/search" method="post">
+                    <input type="text" placeholder="Name or number" name="navbarPokemon">
+                    <button type="submit" class="continue"><img src="/img/icons/enter.svg" alt=""></button>
                 </form>
             </div>
         </nav>
     </header>
+    <aside class="pokebelt">
+        <div class="pokeball-container">
+            <img src="./img/pokeballs/pokeball.png" alt="" class="pokeball">
+        </div>
+        <div class="pokeball-container">
+            <img src="./img/pokeballs/pokeball.png" alt="" class="pokeball">
+        </div>
+        <div class="pokeball-container">
+            <img src="./img/pokeballs/pokeball.png" alt="" class="pokeball">
+        </div>
+        <div class="pokeball-container">
+            <img src="./img/pokeballs/pokeball.png" alt="" class="pokeball">
+        </div>
+        <div class="pokeball-container">
+            <img src="./img/pokeballs/pokeball.png" alt="" class="pokeball">
+        </div>
+        <div class="pokeball-container">
+            <img src="./img/pokeballs/pokeball.png" alt="" class="pokeball">
+        </div>
+    </aside>
+    <aside class="bag">
+        <img src="/img/icons/enter-white.svg" alt="" class="enter-white continue" id="login-selector">
+        <div class="bag-item"><a href="/login">Login</a></div>
+        <img src="/img/icons/enter-white.svg" alt="" class="enter-white continue" id="signup-selector">
+        <div class="bag-item"><a href="/signup">Signup</a></div>
+    </aside>
+    <aside class="bag">
+        <form action="/compare" method="post">
+        <button type="submit" name="pokemon" value="<%= name %>">Compare</button>
+        </form>
+    </aside>
     <main class="main">
         <div class="wrapper results">
             <div class="pokedex-grid">
-                <div class="pokemon-pic">
+                <div class="pokemon-pic-front">
+                    <!-- call pokemon image here -->
+                    <!-- sprites.versions['generation-i']['red-blue'].front_default -->
+                    <img src="<%= sprites.front_default %>" alt="image of the pokemon <%= name %>">
                     <div>
-                        <!-- call pokemon image here -->
-                        <img src="/img/temp/7.png" alt="squirtle image">
-                        <div class="pokemon-number">
-                            <!-- call pokemon number here -->
-                            No.7
-                        </div>
+                        <!-- call pokemon name here -->
+                        <%= name %>
                     </div>
                 </div>
                 <div class="pokemon-info">
-                    <div class="name">
-                        <!-- call pokemon name here -->
-                        Squirtle
+                    <div class="pokemon-number">
+                        <!-- call pokemon number here -->
+                        No.<%= id %>
+
                     </div>
-                    <div class="hp">
-                        232/232
+                    <div class="pokemon-pic-back">
+                        <img src="<%= sprites.back_default %>" alt="image of the pokemon <%= name %>">
                     </div>
                 </div>
                 <div class="pokemon-stats">
@@ -72,49 +104,49 @@
                         HP
                         <div class="hp">
                             <!-- call pokemon hp here -->
-                            44
+                            <%= stats[0].base_stat %>
                         </div>
                     </div>
                     <div>
                         ATTACK
                         <div class="attack">
                             <!-- call pokemon attack here -->
-                            48
+                            <%= stats[1].base_stat %>
                         </div>
                     </div>
                     <div>
                         DEFENSE
                         <div class="defense">
                             <!-- call pokemon defense here -->
-                            65
+                            <%= stats[2].base_stat %>
                         </div>
                     </div>
                     <div>
                         Sp.ATK
                         <div class="spAtk">
                             <!-- call pokemon special attack here -->
-                            50
+                            <%= stats[3].base_stat %>
                         </div>
                     </div>
                     <div>
                         Sp.DEF
                         <div class="spDef">
                             <!-- call pokemon special defense here -->
-                            64
+                            <%= stats[4].base_stat %>
                         </div>
                     </div>
                     <div>
                         SPEED
                         <div class="speed">
                             <!-- call pokemon speed here -->
-                            43
+                            <%= stats[5].base_stat %>
                         </div>
                     </div>
                     <div>
                         TOTAL
                         <div class="total">
                             <!-- call pokemon total here -->
-                            314
+                            <%= stats[0].base_stat + stats[1].base_stat + stats[2].base_stat + stats[3].base_stat + stats[4].base_stat + stats[5].base_stat %>
                         </div>
                     </div>
                 </div>
@@ -122,19 +154,17 @@
                     Type 1 /
                     <div class="type-one">
                         <!-- call pokemon type1 here -->
-                        Water
+                        <%= types[0].type.name %>
                     </div>
                     Type 2 /
                     <div class="type-two">
                         <!-- call pokemon type2 here -->
-                        Water
+                        <% if (typeof(types[1]) == "undefined") { %>
+                            
+                        <% } else { %>
+                            <%= types[1].type.name %>
+                        <% } %>
                     </div>
-                </div>
-                <div class="pokemon-blurb">
-                    ladsfkdjhfk sadfk jdas;fkljads;lkfjas;ld dkj fa;lskdj
-                </div>
-                <div class="pokemon-blurb">
-                    ladsfkdjhfk sadfk jdas;fkljads;lkfjas;ld dkj fa;lskdj
                 </div>
             </div>
         </div>
@@ -142,3 +172,4 @@
     <script src="/img/feather-icons/dist/feather.js" ></script>
 </body>
 </html>
+

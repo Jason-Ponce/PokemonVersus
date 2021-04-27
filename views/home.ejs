@@ -28,7 +28,7 @@
     <meta name="theme-color" content="#ffffff">
     <link rel="stylesheet" href="/css/main.css">
     <!-- Use of defer mean js file will load after html loads -->
-    <script defer src="/js/main.js"></script>
+    <script defer src="/js/home.js"></script>
     
     <title>PokeDex</title>
 </head>
@@ -39,7 +39,7 @@
             <div class="search-bar">
                 <a href="/test">Search</a>
                 <form action="/search" method="post">
-                    <input type="text" placeholder="Name or number" name="pokemontwo">
+                    <input type="text" placeholder="Name or number" name="navbarPokemon">
                     <button type="submit" class="continue"><img src="/img/icons/enter.svg" alt=""></button>
                 </form>
             </div>
@@ -77,16 +77,22 @@
                 <H1>PokeMon App</H1>
                 <label for="pokemon">I choose you</label>
                 <span>
-                    <input type="text" id="pokemon" name="pokemon" placeholder="Name or number">
+                    <input type="text" id="pokemonOne" name="pokemonOne" placeholder="Name or number">
                     <button type="submit" class="continue-90"><img src="/img/icons/enter.svg" alt=""></button>
                 </span>
             </form>
+            <div class="options">
+                <button role="button" class="formChanger">Compare</button>
+                <button role="button" class="formChanger">Stats</button>
+                <button role="button" class="formChanger">Moves</button>
+                <button role="button" class="invisible"></button>
+                <button role="button" class="formChanger">Abilities</button>
+            </div>
         </div>
         <section class="about">
             <h2>About the app</h2>
             <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Excepturi eos voluptate quas asperiores laboriosam, perspiciatis ratione ad odit? Labore reprehenderit eius distinctio voluptatum placeat unde recusandae est consectetur nulla quisquam. <img src="/img/icons/enter.svg" alt="" class="continue"></p>
         </section>
     </main>
-    <script src="/img/feather-icons/dist/feather.js" ></script>
 </body>
 </html>
