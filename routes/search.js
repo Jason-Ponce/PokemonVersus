@@ -15,11 +15,20 @@ router.get('/', (req, res) => {
 router.post('/', async (req, res) => {
   console.log(`====== HTTP Method Used: ${req.method} ======`)
   console.log("/search POST starting...")
+  let lowerPoke;
   const pokemonOne = req.body.pokemonOne
-  // const pokemonTwo =req.body.pokemonTwo
-  // const navbarPokemon = req.body.navbarPokemon
+  const pokemonTwo =req.body.pokemonTwo
+  const navbarPokemon = req.body.navbarPokemon
   console.log(req.body)
-  let lowerPoke = validateForm(pokemonOne);
+  if (pokemonOne){
+    lowerPoke = validateForm(pokemonOne);
+  }
+  if (pokemonTwo){
+    lowerPoke = validateForm(pokemonTwo);
+  }
+  if (navbarPokemon){
+    lowerPoke = validateForm(navbarPokemon);
+  }
   const data = await P.apiCall(lowerPoke);
 
   let abilities = data.abilities;
