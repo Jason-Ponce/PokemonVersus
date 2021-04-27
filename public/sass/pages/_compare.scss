@@ -11,7 +11,7 @@
 .pokedex-grid{
     @include cssGrid(16px, 1fr 1fr);
     padding: 2.5rem;
-    margin-bottom: 10vh;
+    
 
 
     .pokemon-pic{
