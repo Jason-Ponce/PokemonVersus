@@ -1,13 +1,12 @@
 .form-wrapper{
     @include cssGrid(1rem, 1 );
-    margin: auto;
-    padding: 15vw;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 8vw 15vw 0vw 15vw;
 
     *{
         @include flexAlignCenter;
     }
-
-
 
     span{
         display: flex;

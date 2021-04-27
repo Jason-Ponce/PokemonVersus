@@ -8,33 +8,59 @@ const P = require('../middleware/api.js');
 
 
 router.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname + '/../view/home.html'));
-    // res.render('/ejs route here????');
-
+  console.log(`====== HTTP Method Used: ${req.type} ======`)
+  res.render('search');
 });
 
 router.post('/', async (req, res) => {
+  console.log(`====== HTTP Method Used: ${req.method} ======`)
   console.log("/search POST starting...")
-  const pokemon = req.body.pokemon
-  let lowerPoke = validateForm(pokemon);
+  const pokemonOne = req.body.pokemonOne
+  // const pokemonTwo =req.body.pokemonTwo
+  // const navbarPokemon = req.body.navbarPokemon
+  console.log(req.body)
+  let lowerPoke = validateForm(pokemonOne);
   const data = await P.apiCall(lowerPoke);
 
   let abilities = data.abilities;
+  let baseExp = data.base_experience;
+  let flavorText = "When several of\nthese POKéMON\ngather, their\felectricity could\nbuild and cause\nlightning storms."
   let forms = data.forms;
   let gameIndices = data.game_indices;
+  let height = data.height;
   let heldItems = data.held_items;
+  let id = data.id;
   let moves = data.moves;
+  let name = data.name;
   let species = data.species;
   let sprites = data.sprites;
   let stats = data.stats;
   let types = data.types;
-  
-  console.log(`Did you do a good job ${data.name.charAt(0).toUpperCase()+ data.name.slice(1)}?`)
+  let weight = data.weight;
+
+  // console.log(`Did you do a good job ${data.name.charAt(0).toUpperCase()+ data.name.slice(1)}?`)
   // console.log(JSON.stringify(data.abilities.ability));
-  console.log(stats)
-  res.sendFile(path.join(__dirname + '/../view/search.html'));
+  console.log(types[1])
+  // res.sendFile(path.join(__dirname + '/../view/search.html'));
   console.log("If pokemon name is shown before POST ending, it works!")
   console.log("/search POST ending...")
+  res.render('search', {
+    abilities : abilities,
+    baseExp : baseExp,
+    flavorText : flavorText,
+    forms : forms,
+    gameIndices : gameIndices,
+    height : height ,
+    heldItems : heldItems,
+    id : id,
+    moves : moves,
+    name : name,
+    species : species,
+    sprites : sprites,
+    stats : stats,
+    types : types,
+    weight : weight
+  });
 })
 
 function validateForm(input) {

@@ -2,13 +2,40 @@
     @include flexAlignCenter;
     background-color: $tertiary-color-light;
     width: fit-content;
+    max-width: 70%;
     height: fit-content;
+    min-height: 75vh;
     margin: auto;
     margin-top: 1rem;
     margin-bottom: 1rem;
     @include pokeBorder;
+
     
-    
+    .options{
+        margin: auto;
+        display: flex;
+        flex-flow: row wrap;
+        justify-self: center;
+        width: 60%;
+        padding: 5vh 0vh 8vh 0vh;
+        gap: 8px;
+        flex-basis: 10px;
+
+        button{
+            position: relative;
+            width: 20vh;
+            height: 15vh;
+            font-size: 16px;
+            cursor: pointer;
+            @include pokeBorder;
+            padding: 16px;
+            background-color: $secondary-color;
+        }
+        button:hover{
+            background-color: $primary-color-dark;
+            transition: .5s;
+        }
+    }
 
 }
 

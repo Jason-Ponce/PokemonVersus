@@ -5,14 +5,14 @@ const path = require('path');
 router
     .route("/signup")
     .get((req, res) => {
-        res.sendFile(path.join(__dirname + '/../view/signup.html'));
+        res.render('signup');
     })
     .post((req, res) => {})
 
 router
     .route("/login")
     .get((req, res) => {
-        res.sendFile(path.join(__dirname + '/../view/login.html'));
+        res.render('login')
     })
     .post((req, res) => {
         let username = req.body.username;
