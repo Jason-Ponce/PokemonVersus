@@ -7,12 +7,13 @@ const P = require('../middleware/api.js');
 router
     .route("/")
     .get((req, res) => {
-    res.sendFile(path.join(__dirname + '/../view/compare.html'));
-      // res.render('/ejs route here????');
+    // res.sendFile(path.join(__dirname + '/../view/compare.html'));
+    res.render('compare');
     })
     .post((req, res)=> {
+        console.log(req.body)
         comparePokemon(object1, object2)
-        res.sendFile(path.join(__dirname + '/../view/compare.html'));
+        res.render('compare');
     })
 
 var object1 = {name: 'idk', level: 4, moves: 5}
