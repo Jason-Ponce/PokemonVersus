@@ -7,6 +7,9 @@ const port = 8000;
 //serving static files
 app.use(express.static(__dirname + '/public'));
 
+//EJS template engine
+app.set('view engine', 'ejs');
+
 app.use(express.urlencoded({
     extended: true
   }))

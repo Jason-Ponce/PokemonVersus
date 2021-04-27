@@ -10,11 +10,10 @@ router
       // console.log(pokemon +'pokemon in get')
       //getStats(stat1);
       comparePokemon(stat1, stat2);
-      res.sendFile(path.join(__dirname + '/../view/compare.html'));
-      // res.render('/ejs route here????');
+      res.render('compare');
     })
     .post((req, res)=> {
-        res.sendFile(path.join(__dirname + '/../view/compare.html'));
+      res.render('compare');
     })
 
 var stat1 = 311;
