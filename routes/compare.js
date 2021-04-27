@@ -3,42 +3,42 @@ const router = express.Router();
 const path = require('path');
 const P = require('../middleware/api.js');
 
-
 router
     .route("/")
     .get((req, res) => {
-    res.sendFile(path.join(__dirname + '/../view/compare.html'));
+      //const pokemon = req.body.pokemon;
+      // console.log(pokemon +'pokemon in get')
+      //getStats(stat1);
+      comparePokemon(stat1, stat2);
+      res.sendFile(path.join(__dirname + '/../view/compare.html'));
       // res.render('/ejs route here????');
     })
     .post((req, res)=> {
-        comparePokemon(object1, object2)
         res.sendFile(path.join(__dirname + '/../view/compare.html'));
     })
 
-var object1 = {name: 'idk', level: 4, moves: 5}
-var object2 = {name: 'idk2', level: 6, moves: 4}
+var stat1 = 311;
+var stat2 = 300;
+
+function getStats(pokemon){
+  console.log("COMPARE starting...")
+  // const pokemon = req.body.pokemon;
+  let lowerPoke = validateForm(pokemon);
+  console.log(lowerPoke)
+  const data = P.apiCall(lowerPoke);
+  let stats = data.stats;
+
+  for (stat in stats){
+    stat1 += stats[stat]['base_stat']
+  }
+  console.log(stat1)
+  console.log("COMPARE ending...")
+}
 
 function comparePokemon(first, second){
-    // search pokemon like normal
-    // pull up random pokemon
-    // pokemon with higher average stats wins and does bouncy animation?
-
-    // console.log("/search POST starting...")
-    // const pokemon = req.body.pokemon
-    // let lowerPoke = validateForm(pokemon);
-    // const data = await P.apiCall(lowerPoke);
-    
-    // console.log(`Did you do a good job ${data.name.charAt(0).toUpperCase() + data.name.slice(1)}?`)
-    // console.log(JSON.stringify(data.abilities.ability));
-    // res.sendFile(path.join(__dirname + '/../view/search.html'));
-    // console.log("If pokemon name is shown before POST ending, it works!")
-    // console.log("/search POST ending...")
-
+    console.log(first)
     if (first && second){
-        console.log(first.level)
-        let firstStats = first.level + first.moves;
-        let secondStats = second.level + second.moves;
-        if (firstStats > secondStats) {
+        if (first > secondStats) {
             console.log('Pokemon 1 is the stronger Pokemon?')
         } else 
             console.log('Pokemon 2 is the stronger Pokemon')

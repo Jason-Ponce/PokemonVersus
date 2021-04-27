@@ -3,14 +3,7 @@ const router = express.Router();
 const path = require('path');
 
 router
-    .route("/signup")
-    .get((req, res) => {
-        res.sendFile(path.join(__dirname + '/../view/signup.html'));
-    })
-    .post((req, res) => {})
-
-router
-    .route("/login")
+    .route("/")
     .get((req, res) => {
         res.sendFile(path.join(__dirname + '/../view/login.html'));
     })
@@ -19,3 +12,5 @@ router
         let password = req.body.password;
         res.send(`Username: ${username}<br>Password: ${password}`);
     })
+
+module.exports = router;

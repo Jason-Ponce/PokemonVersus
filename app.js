@@ -19,14 +19,16 @@ const testRoute = require('./routes/test.js')
 const aboutRoute = require('./routes/about.js')
 const searchRoute = require('./routes/search.js')
 const compareRoute = require('./routes/compare.js')
-// const loginRoute = require('./routes/login.js')
+const loginRoute = require('./routes/login.js')
+const signupRoute = require('./routes/signup.js')
 
 app.use('/', homeRoute);
 app.use('/test', testRoute);
 app.use('/about', aboutRoute);
 app.use('/search', searchRoute);
 app.use('/compare', compareRoute);
-//app.use('/login', loginRoute);
+app.use('/login', loginRoute);
+app.use('/signup', signupRoute);
 
 
 //each route needs [var/let/const] [nameofRoute] = require('./routes/[js file name]')
