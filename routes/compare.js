@@ -5,12 +5,13 @@ const P = require('../middleware/api.js');
 
 router
     .route("/")
-    .post(async (req, res) => {
+    .post((req, res) => {
       console.log(req.body.pokemonOne +'pokemon in get')
-      const pokemon = req.body.pokemonOne;
-      if (pokemon){
-      await getStats(pokemon);
-      comparePokemon(pokemon, stat2);
+      const pokemonInputOne = req.body.pokemonOne;
+      const pokemonInputTwo = req.body.pokemonTwo;
+      if (pokemonInputOne && pokemonInputTwo){
+        getStats(pokemon);
+        comparePokemon(pokemon, stat2);
       } else {
         console.log('Cannot compare empty field')
         res.render('home')
@@ -22,23 +23,81 @@ router
     })
 
 var stat1 = 0;
-var stat2 = 300;
+var stat2 = 0;
 
-function getStats(pokemon){
+async function getStats(pokemonOne, pokemonTwo){
   console.log("getting stats...")
-  // const pokemon = req.body.pokemonOne;
-  let lowerPoke = validateForm(pokemon);
-  console.log(lowerPoke)
-  const data = P.apiCall(pokemon);
-  let stats = data.stats;
-  console.log(data)
+  if (pokemonOne == null) {
+    let lowerPokeTwo = validateForm(pokemonTwo);
+    let randomPoke = Math.floor((Math.random() * 150) + 1);
 
-  for (stat in stats){
-    stat1 += stats[stat]['base_stat']
+    let randomPokeData = await P.apiCall(randomPoke); 
+    let dataTwo = await P.apiCall(lowerPokeTwo);
+
+    let randomStats = randomPokeData.stats;
+    let dataTwoStats = dataTwo.statsStats;
+
+    for (stat in randomStats){
+      stat1 += randomStats[stat]['base_stat']
+    }
+    for (stat in dataTwoStats){
+      stat2 += dataTwoStats[stat]['base_stat']
+    }
+  } else if (pokemonTwo == null) {
+    let lowerPokeOne = validateForm(pokemonOne);
+    let randomPoke = Math.floor((Math.random() * 150) + 1);
+
+    let randomPokeData = await P.apiCall(randomPoke); 
+    let dataOne = await P.apiCall(lowerPokeOne);
+
+    let randomStats = randomPokeData.stats;
+    let dataOneStats = dataOne.statsStats;
+
+    for (stat in randomStats){
+      stat1 += randomStats[stat]['base_stat']
+    }
+    for (stat in dataOneStats){
+      stat2 += dataTwoStats[stat]['base_stat']
+    }
+  } else {
+    let lowerPoke = validateForm(pokemonOne);
+    let lowerPokeTwo = validateForm(pokemonTwo);
+    console.log(lowerPoke + lowerPokeTwo)
+
+    const data = await P.apiCall(lowerPoke);
+    const dataTwo = await P.apiCall(lowerPokeTwo);
+
+    let stats = data.stats;
+    let statsTwo = dataTwo.stats;
+
+    for (stat in stats){
+      stat1 += stats[stat]['base_stat']
+    }
+    for (stat in statsTwo){
+      stat2 += statsTwo[stat]['base_stat']
+    }
+    console.log(stat1 + ' stat1', stat2 + ' stat2')
+    console.log("getting stats ending...")
   }
-  console.log(stat1 + 'stat1')
-  console.log("getting stats ending...")
 }
+
+  // else {
+
+  //     let lowerPoke = validateForm(pokemonOne);
+  //     let lowerPokeTwo = validateForm(pokemonTwo);
+  //     console.log(lowerPoke + lowerPokeTwo)
+  
+  //     const data = await P.apiCall(lowerPoke);
+  //     const dataTwo = await P.apiCall(lowerPokeTwo);
+  
+  //     let stats = data.stats;
+  //     let statsTwo = dataTwo.stats;
+  
+  //     for (stat in stats){
+  //       stat1 += stats[stat]['base_stat']
+  //     }
+  // }
+
 
 function comparePokemon(first, second){
   console.log('comparing...')
