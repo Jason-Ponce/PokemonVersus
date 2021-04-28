@@ -5,40 +5,106 @@ const P = require('../middleware/api.js');
 
 router
     .route("/")
+    .post((req, res) => {
+      console.log(req.body.pokemonOne +'pokemon in get')
+      const pokemonInputOne = req.body.pokemonOne;
+      const pokemonInputTwo = req.body.pokemonTwo;
+      if (pokemonInputOne && pokemonInputTwo){
+        getStats(pokemon);
+        comparePokemon(pokemon, stat2);
+      } else {
+        console.log('Cannot compare empty field')
+        res.render('home')
+      }
+      res.render('compare');
+    })
     .get((req, res) => {
-      //const pokemon = req.body.pokemon;
-      // console.log(pokemon +'pokemon in get')
-      //getStats(stat1);
-      comparePokemon(stat1, stat2);
-      res.render('compare');
-    })
-    .post((req, res)=> {
       res.render('compare');
     })
 
-var stat1 = 311;
-var stat2 = 300;
+var stat1 = 0;
+var stat2 = 0;
 
-function getStats(pokemon){
-  console.log("COMPARE starting...")
-  // const pokemon = req.body.pokemon;
-  let lowerPoke = validateForm(pokemon);
-  console.log(lowerPoke)
-  const data = P.apiCall(lowerPoke);
-  let stats = data.stats;
+async function getStats(pokemonOne, pokemonTwo){
+  console.log("getting stats...")
+  if (pokemonOne == null) {
+    let lowerPokeTwo = validateForm(pokemonTwo);
+    let randomPoke = Math.floor((Math.random() * 150) + 1);
 
-  for (stat in stats){
-    stat1 += stats[stat]['base_stat']
+    let randomPokeData = await P.apiCall(randomPoke); 
+    let dataTwo = await P.apiCall(lowerPokeTwo);
+
+    let randomStats = randomPokeData.stats;
+    let dataTwoStats = dataTwo.statsStats;
+
+    for (stat in randomStats){
+      stat1 += randomStats[stat]['base_stat']
+    }
+    for (stat in dataTwoStats){
+      stat2 += dataTwoStats[stat]['base_stat']
+    }
+  } else if (pokemonTwo == null) {
+    let lowerPokeOne = validateForm(pokemonOne);
+    let randomPoke = Math.floor((Math.random() * 150) + 1);
+
+    let randomPokeData = await P.apiCall(randomPoke); 
+    let dataOne = await P.apiCall(lowerPokeOne);
+
+    let randomStats = randomPokeData.stats;
+    let dataOneStats = dataOne.statsStats;
+
+    for (stat in randomStats){
+      stat1 += randomStats[stat]['base_stat']
+    }
+    for (stat in dataOneStats){
+      stat2 += dataTwoStats[stat]['base_stat']
+    }
+  } else {
+    let lowerPoke = validateForm(pokemonOne);
+    let lowerPokeTwo = validateForm(pokemonTwo);
+    console.log(lowerPoke + lowerPokeTwo)
+
+    const data = await P.apiCall(lowerPoke);
+    const dataTwo = await P.apiCall(lowerPokeTwo);
+
+    let stats = data.stats;
+    let statsTwo = dataTwo.stats;
+
+    for (stat in stats){
+      stat1 += stats[stat]['base_stat']
+    }
+    for (stat in statsTwo){
+      stat2 += statsTwo[stat]['base_stat']
+    }
+    console.log(stat1 + ' stat1', stat2 + ' stat2')
+    console.log("getting stats ending...")
   }
-  console.log(stat1)
-  console.log("COMPARE ending...")
 }
 
+  // else {
+
+  //     let lowerPoke = validateForm(pokemonOne);
+  //     let lowerPokeTwo = validateForm(pokemonTwo);
+  //     console.log(lowerPoke + lowerPokeTwo)
+  
+  //     const data = await P.apiCall(lowerPoke);
+  //     const dataTwo = await P.apiCall(lowerPokeTwo);
+  
+  //     let stats = data.stats;
+  //     let statsTwo = dataTwo.stats;
+  
+  //     for (stat in stats){
+  //       stat1 += stats[stat]['base_stat']
+  //     }
+  // }
+
+
 function comparePokemon(first, second){
+  console.log('comparing...')
     console.log(first)
     if (first && second){
-        if (first > secondStats) {
-            console.log('Pokemon 1 is the stronger Pokemon?')
+        if (first > second) {
+            console.log('Pokemon 1 is the stronger Pokemon')
         } else 
             console.log('Pokemon 2 is the stronger Pokemon')
     } else 
