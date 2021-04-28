@@ -1,75 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- https://github.com/JonKaric/head -->
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Homepage of the Pokemon PokeDex Versus web app!">
-    <meta property="og:url"                 content="http://www.example.com" />
-    <meta property="og:title"               content="Website page title" />
-    <meta property="og:description"         content="A brief description of the content" />
-    <meta property="og:site_name"           content="Example" />
-    <meta property="og:image"               content="http://www.example.com/image.jpg" />
-    <meta property="fb:app_id"              content="000000" />  <!-- Used for Domain Insights -->
-    <meta property="og:type"                content="website" /> <!-- website is deafult -->
-    <meta property="og:locale"              content="en_US" />   <!-- en_US is deafult -->
-    <meta name="twitter:card"               content="summary">
-    <meta name="twitter:site"               content="@your_sites_username">
-    <meta name="twitter:title"              content="Page Title">
-    <meta name="twitter:description"        content="Page description less than 200 characters">
-    <meta name="twitter:image"              content="http://www.example.com/image.jpg">
-    <link rel="apple-touch-icon" sizes="180x180" href="/img/favicon/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/img/favicon/favicon-16x16.png">
-    <!-- <link rel="manifest" href="/site.webmanifest"> -->
-    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
-    <meta name="msapplication-TileColor" content="#da532c">
-    <meta name="theme-color" content="#ffffff">
-    <link rel="stylesheet" href="/css/main.css">
-    <!-- Use of defer mean js file will load after html loads -->
-    <script defer src="/js/main.js"></script>
-    
+    <%- include('../views/partials/head') %>
+    <script defer src="/js/home.js"></script>
     <title>PokeDex</title>
 </head>
 <body>
-    <header class="header">
-        <nav class="navbar">
-            <a href="/">PokeMon App</a>
-            <div class="search-bar">
-                <a href="/test">Search</a>
-                <form action="#" method="post">
-                    <input type="text" placeholder="Name or number">
-                </form>
-            </div>
-        </nav>
-    </header>
-    <aside class="pokebelt">
-        <div class="pokeball-container">
-            <img src="./img/pokeballs/pokeball.png" alt="" class="pokeball">
-        </div>
-        <div class="pokeball-container">
-            <img src="./img/pokeballs/pokeball.png" alt="" class="pokeball">
-        </div>
-        <div class="pokeball-container">
-            <img src="./img/pokeballs/pokeball.png" alt="" class="pokeball">
-        </div>
-        <div class="pokeball-container">
-            <img src="./img/pokeballs/pokeball.png" alt="" class="pokeball">
-        </div>
-        <div class="pokeball-container">
-            <img src="./img/pokeballs/pokeball.png" alt="" class="pokeball">
-        </div>
-        <div class="pokeball-container">
-            <img src="./img/pokeballs/pokeball.png" alt="" class="pokeball">
-        </div>
-    </aside>
-    <aside class="bag">
-        <img src="/img/icons/enter-white.svg" alt="" class="enter-white continue" id="login-selector">
-        <div class="bag-item"><a href="/login">Login</a></div>
-        <img src="/img/icons/enter-white.svg" alt="" class="enter-white continue" id="signup-selector">
-        <div class="bag-item"><a href="/signup">Signup</a></div>
-    </aside>
+    <%- include('../views/partials/header') %>
+    <%- include('../views/partials/pokebelt') %>
+    <%- include('../views/partials/bag') %>
     <main class="main">
         <div class="wrapper">
             <form action="/" method="POST" class="form-signup">

@@ -5,8 +5,10 @@ const path = require('path');
 router
     .route("/")
     .get((req, res) => {
-        res.sendFile(path.join(__dirname + '/../view/signup.html'));
+        res.render('signup');
     })
-    .post((req, res) => {})
+    .post((req, res) => {
+        res.render('signup');
+    })
 
 module.exports = router;

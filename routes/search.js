@@ -15,6 +15,7 @@ router.get('/', (req, res) => {
 router.post('/', async (req, res) => {
   console.log(`====== HTTP Method Used: ${req.method} ======`)
   console.log("/search POST starting...")
+  let lowerPoke;
   const pokemonOne = req.body.pokemonOne
   const pokemonTwo = req.body.pokemonTwo
   const navbarPokemon = req.body.navbarPokemon
