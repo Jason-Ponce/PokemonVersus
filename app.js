@@ -1,14 +1,20 @@
 const express = require('express')
 const app = express();
 const port = 8000;
+const bodyParser = require('body-parser');
+const connectDB = require('./DB/connection.js');
 //Listen to... 
 //localhost:8000
+
+connectDB()
 
 //serving static files
 app.use(express.static(__dirname + '/public'));
 
 //EJS template engine
 app.set('view engine', 'ejs');
+
+app.use (bodyParser.urlencoded({extended: true}))
 
 app.use(express.urlencoded({
     extended: true

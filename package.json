@@ -4,6 +4,7 @@
   "description": "A Pokemon Versus PokeDex project.",
   "main": "app.js",
   "scripts": {
+    "app": "nodemon app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
