@@ -44,8 +44,39 @@ function getSpecies(name){
   })
 }
 
+function getMoves(name){
+  return new Promise((resolve, reject) => {
+    if (name){
+      P.getPokemonByName(name, function (api, error){
+        if (!error) {
+          resolve(api)
+        } else {
+          reject(error);
+        }
+      });
+    } else {
+      reject("pokemon move not found")
+    }
+  })
+}
 
-module.exports = {apiCall, getSpecies};
+function getAbilities(name){
+  return new Promise((resolve, reject) => {
+    if (name){
+      P.getAbilityByName(name)
+      resolve(function(response) {
+      console.log(response);
+    })
+      reject(function(error) {
+      console.log('There was an ERROR: ', error);
+    });
+    }
+  })
+}
+
+
+
+module.exports = {apiCall, getSpecies, getMoves, getAbilities};
 
 // create two new routes - search results for pokemon, one for two pokemon
 
