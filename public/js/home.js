@@ -16,7 +16,6 @@ for (const formChange of formChanger){
                 newInput.setAttribute("minlength", "1")
                 newInput.setAttribute("maxlength", "12")
                 newInput.setAttribute("size", "25")
-                newInput.required = true;
                 let newButton = document.createElement("BUTTON");
                 newButton.setAttribute("type", "submit");
                 newButton.setAttribute("class", "continue-90");
@@ -34,14 +33,18 @@ for (const formChange of formChanger){
                 inputSelector.placeholder = "Pokemon 1: Name or Number";
                 document.getElementById("newSpan").style.display = "flex";
                 inputSelector.setAttribute("name", e.target.dataset.body);
+                formSelector.setAttribute("action", "/compare");
             }
-        } else if(document.getElementById("newSpan")) {
+        } else if(document.getElementById("newSpan") && document.getElementById("newSpan").style.display != "none") {
             document.getElementById("newSpan").style.display = "none";
             inputSelector.placeholder = e.target.innerText;
             inputSelector.setAttribute("name", e.target.dataset.body);
+            formSelector.setAttribute("action", `/${e.target.id}`);
         } else{
             inputSelector.placeholder = e.target.innerText;
             inputSelector.setAttribute("name", e.target.dataset.body);
+            formSelector.setAttribute("action", `/${e.target.id}`);
+            
         }      
     })
 };
