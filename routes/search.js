@@ -72,13 +72,6 @@ router.post('/', async (req, res) => {
   });
 })
 
-function validateForm(input) {
-  if (isNaN(input)) {
-    let lowerInput = input.toLowerCase();
-    return (lowerInput);
-  }
-}
-
 
 
 // you export the router variable to have access to the routes in the app.js file
