@@ -2,9 +2,8 @@
 //https://developer.mozilla.org/en-US/docs/Learn/Server-side/Express_Nodejs/routes
 const express = require('express');
 const router = express.Router();
-const path = require('path');
 const P = require('../middleware/api.js');
-//const L = require('../middleware/lookup.js');
+const validate = require('../middleware/lookup.js');
 
 
 router.get('/', (req, res) => {
@@ -17,17 +16,17 @@ router.post('/', async (req, res) => {
   console.log("/search POST starting...")
   let lowerPoke;
   const pokemonOne = req.body.pokemonOne
-  const pokemonTwo =req.body.pokemonTwo
+  const pokemonTwo = req.body.pokemonTwo
   const navbarPokemon = req.body.navbarPokemon
   console.log(req.body)
   if (pokemonOne){
-    lowerPoke = validateForm(pokemonOne);
+    lowerPoke = validate.validateForm(pokemonOne);
   }
-  if (pokemonTwo){
-    lowerPoke = validateForm(pokemonTwo);
+  if (pokemonTwo) {
+    lowerPoke = validate.validateForm(pokemonTwo);
   }
   if (navbarPokemon){
-    lowerPoke = validateForm(navbarPokemon);
+    lowerPoke = validate.validateForm(navbarPokemon);
   }
   const data = await P.apiCall(lowerPoke);
 
@@ -74,8 +73,10 @@ router.post('/', async (req, res) => {
 })
 
 function validateForm(input) {
-  let lowerInput = input.toLowerCase();
-  return (lowerInput);
+  if (isNaN(input)) {
+    let lowerInput = input.toLowerCase();
+    return (lowerInput);
+  }
 }
 
 
