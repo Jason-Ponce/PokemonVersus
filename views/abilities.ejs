@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('../views/partials/head') %>
+    <script defer src="/js/home.js"></script>
+    <title>PokeDex</title>
+</head>
+<body>
+    <%- include('../views/partials/header') %>
+    <%- include('../views/partials/pokebelt') %>
+    <%- include('../views/partials/bag') %>
+    <main class="main">
+        <div class="wrapper">
+            <h1>Abilities</h1>
+            <div class="abilities">
+                <div class="name-data"><%= abilities.name %></div>
+                <div class="desc-data"><%= abilities.desc %></div>
+                <div class="pokemon-list">
+                    <h4>Potential Pokemon</h4>
+                    <div class="pokemon-data"><%= abilities.pokemonOne %></div>
+                    <div class="pokemon-data"><%= abilities.pokemonTwo %></div>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+</html>
