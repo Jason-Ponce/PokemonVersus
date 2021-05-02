@@ -13,12 +13,11 @@
         <div class="wrapper">
             <h1>Abilities</h1>
             <div class="abilities">
-                <div class="name-data"><%= abilities.name %></div>
-                <div class="desc-data"><%= abilities.desc %></div>
+                <div class="name-data"><%= name %></div>
+                <div class="desc-data"><%= effect_entries[1].effect %></div>
                 <div class="pokemon-list">
                     <h4>Potential Pokemon</h4>
-                    <div class="pokemon-data"><%= abilities.pokemonOne %></div>
-                    <div class="pokemon-data"><%= abilities.pokemonTwo %></div>
+                    <%= pk.forEach(poke => pk) %>
                 </div>
             </div>
         </div>

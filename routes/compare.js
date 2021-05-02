@@ -7,10 +7,8 @@ const validate = require('../middleware/lookup.js');
 router
     .route("/")
     .post(async(req, res) => {
-      console.log(req.body)
       const pokemonInputOne = req.body.pokemonOne;
       const pokemonInputTwo = req.body.pokemonTwo;
-      console.log(randomPoke)
       if (pokemonInputOne && pokemonInputTwo){
         await getStats(pokemonInputOne, pokemonInputTwo);
         await comparePokemon(stat1, stat2);
