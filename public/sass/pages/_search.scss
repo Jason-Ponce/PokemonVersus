@@ -46,11 +46,9 @@
 
     .pokemon-stats{
         @include pokeBorder;
-        padding: 1rem;
+        padding: 1.5rem !important;
         div{
-            padding: 2px;
-            @include cssGrid(0, 1fr);
-
+            @include cssGrid(0px, auto);
             div{
                 justify-self: end;
             }

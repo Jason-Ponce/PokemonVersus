@@ -38,7 +38,6 @@ a {
 
 a:visited {
   text-decoration: none;
-  color: white;
 }
 
 * {
@@ -349,6 +348,104 @@ input {
 
 input:focus {
   outline: none;
+  background-color: #edebec;
+}
+
+.moves {
+  display: -ms-grid;
+  display: grid;
+  grid-auto-rows: auto;
+  row-gap: 8px;
+  -ms-grid-columns: auto auto;
+      grid-template-columns: auto auto;
+  border-style: solid;
+  border-image-slice: 11.5% 11.5% 11.5% 11.5%;
+  border-image-width: 1.5em 1.5em 1.5em 1.5em;
+  border-image-outset: 0px 0px 0px 0px;
+  border-image-repeat: round round;
+  border-image-source: url(/img/icons/border.svg);
+  padding: 32px;
+  margin: 16px;
+  position: relative;
+  max-width: 80%;
+}
+
+.moves table, .moves th, .moves td {
+  border: 2px double black;
+}
+
+.moves td:nth-child(even) {
+  text-align: left;
+  padding: 2px 8px 2px 32px;
+}
+
+.moves td:nth-child(even)::first-letter {
+  text-transform: uppercase;
+}
+
+.moves td:nth-child(odd) {
+  text-align: left;
+  padding: 2px 8px 2px 32px;
+}
+
+.moves .flavor_text-data {
+  position: relative;
+  margin: 1rem;
+  padding: 8px 8px 8px 8px;
+}
+
+.abilities {
+  display: -ms-grid;
+  display: grid;
+  grid-auto-rows: auto;
+  row-gap: 16px;
+  -ms-grid-columns: auto auto;
+      grid-template-columns: auto auto;
+  border-style: solid;
+  border-image-slice: 11.5% 11.5% 11.5% 11.5%;
+  border-image-width: 1.5em 1.5em 1.5em 1.5em;
+  border-image-outset: 0px 0px 0px 0px;
+  border-image-repeat: round round;
+  border-image-source: url(/img/icons/border.svg);
+  padding: 48px;
+  margin: 16px;
+  position: relative;
+  max-width: 80%;
+}
+
+.abilities .name-data::first-letter {
+  text-transform: uppercase;
+}
+
+.abilities .name-data {
+  padding: 2px 8px 2px 0px;
+}
+
+.abilities .desc-data {
+  padding: 2px 8px 2px 32px;
+}
+
+.abilities .pokemon-list {
+  -ms-grid-column: 1;
+      grid-column-start: 1;
+  grid-column-end: 3;
+  display: -ms-grid;
+  display: grid;
+  grid-auto-rows: auto;
+  row-gap: 8px;
+  -ms-grid-columns: auto;
+      grid-template-columns: auto;
+}
+
+.abilities .pokemon-list .pokemon-data {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 2px 8px 2px 32px;
+  text-transform: capitalize;
 }
 
 button {
@@ -473,17 +570,16 @@ button {
   border-image-outset: 0px 0px 0px 0px;
   border-image-repeat: round round;
   border-image-source: url(/img/icons/border.svg);
-  padding: 1rem;
+  padding: 1.5rem !important;
 }
 
 .pokedex-grid .pokemon-stats div {
-  padding: 2px;
   display: -ms-grid;
   display: grid;
   grid-auto-rows: auto;
-  row-gap: 0;
-  -ms-grid-columns: 1fr;
-      grid-template-columns: 1fr;
+  row-gap: 0px;
+  -ms-grid-columns: auto;
+      grid-template-columns: auto;
 }
 
 .pokedex-grid .pokemon-stats div div {
