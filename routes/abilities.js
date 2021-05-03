@@ -11,7 +11,6 @@ router
       let lowerAbility = await validate.validateForm(ability)
       let abilities = await P.getAbilities(lowerAbility)
 
-      console.log(req.body)
 
       let id = abilities.id;
       let name = abilities.name;
