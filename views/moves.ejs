@@ -36,18 +36,41 @@
                     <tr>
                         <td class="power">Power</td>
                         <td class="power-data">
-                            <%= power %>
+                            <% if (power) { %>
+                                <%= power %>
+                            <% } else { %>
+                            -----
+                            <% } %>
                         </td>
                     </tr>
                     <tr>
                         <td class="accuracy">Accuracy</td>
                         <td class="accuracy-data">
-                            <%= accuracy %>
+                            <% if (accuracy) { %>
+                                <%= accuracy %>
+                            <% } else { %>
+                            -----
+                            <% } %>
                         </td>
                     </tr>
                 </table>
                 <div class="flavor_text-data">
-                    <%= flavor_text_entries %>
+                    <% let i = 0 %> 
+                    <% flavor_text_entries.forEach(entry => { %>
+                        <div class="flavor-text" data-selector="<%= i %>" >
+                            <div class="flavor-name">
+                                <%= name %>  <%= entry.version_group.name %>
+                            </div>
+                            <div class="flavor-desc">
+                                <%= entry.flavor_text %>
+                            </div>
+                        </div>
+                        <% i++; %> 
+                        <% console.log(i) %> 
+                    <% }) %>
+
+
+
                 </div>
             </div>
         </div>

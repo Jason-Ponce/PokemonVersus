@@ -394,6 +394,23 @@ input:focus {
   padding: 8px 8px 8px 8px;
 }
 
+.moves .flavor_text-data .flavor-text {
+  display: none;
+}
+
+.moves .flavor_text-data .flavor-text .flavor-name {
+  text-transform: capitalize;
+  margin-bottom: 1rem;
+}
+
+.moves .flavor_text-data .flavor-text:nth-child(1) {
+  display: block;
+}
+
+.ability-title {
+  margin-top: 32px;
+}
+
 .abilities {
   display: -ms-grid;
   display: grid;
@@ -408,7 +425,7 @@ input:focus {
   border-image-repeat: round round;
   border-image-source: url(/img/icons/border.svg);
   padding: 48px;
-  margin: 16px;
+  margin: 16px auto 32px auto;
   position: relative;
   max-width: 80%;
 }
@@ -914,6 +931,9 @@ button {
       -ms-flex-flow: row wrap;
           flex-flow: row wrap;
   justify-self: center;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
   width: 60%;
   padding: 5vh 0vh 8vh 0vh;
   gap: 8px;

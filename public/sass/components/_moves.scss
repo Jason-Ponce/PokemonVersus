@@ -28,5 +28,18 @@
         position: relative;
         margin: 1rem;
         padding: 8px 8px 8px 8px;
+
+        .flavor-text{
+            display: none;
+            // @include cssGrid(0px, auto auto);
+            .flavor-name{
+                text-transform: capitalize;
+                margin-bottom: 1rem;
+            }
+        }
+
+        .flavor-text:nth-child(1){
+            display: block;
+        }
     }
 }
