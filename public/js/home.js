@@ -39,11 +39,11 @@ for (const formChange of formChanger){
             document.getElementById("newSpan").style.display = "none";
             inputSelector.placeholder = e.target.innerText;
             inputSelector.setAttribute("name", e.target.dataset.body);
-            formSelector.setAttribute("action", `/${e.target.id}`);
+            formSelector.setAttribute("action", `/${e.target.dataset.action}`);
         } else{
             inputSelector.placeholder = e.target.innerText;
             inputSelector.setAttribute("name", e.target.dataset.body);
-            formSelector.setAttribute("action", `/${e.target.id}`);
+            formSelector.setAttribute("action", `/${e.target.dataset.action}`);
             
         }      
     })

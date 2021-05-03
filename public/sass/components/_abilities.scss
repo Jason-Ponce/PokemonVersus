@@ -1,8 +1,12 @@
+.ability-title{
+    margin-top: 32px;
+}
+
 .abilities{
     @include cssGrid(16px, auto auto);
     @include pokeBorder;
     padding: 48px;
-    margin: 16px;
+    margin: 16px auto 32px auto;
     position: relative;
     max-width: 80%;
 

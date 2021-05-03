@@ -11,13 +11,15 @@
     <%- include('../views/partials/bag') %>
     <main class="main">
         <div class="wrapper">
-            <h1>Abilities</h1>
+            <h1 class="ability-title">Abilities</h1>
             <div class="abilities">
                 <div class="name-data"><%= name %></div>
                 <div class="desc-data"><%= effect_entries[1].effect %></div>
                 <div class="pokemon-list">
                     <h4>Potential Pokemon</h4>
-                    <%= pk.forEach(poke => pk) %>
+                    <% pk.forEach(function(poke){ %>
+                        <div class="pokemon-data"><%= poke.pokemon.name %></div>
+                    <% }); %>
                 </div>
             </div>
         </div>
