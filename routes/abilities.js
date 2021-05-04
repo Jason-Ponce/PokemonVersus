@@ -1,6 +1,5 @@
 const express = require('express');
 const router = express.Router();
-const path = require('path');
 const P = require('../middleware/api.js');
 const validate = require('../middleware/lookup.js');
 
@@ -20,8 +19,6 @@ router
       let effect_changes = abilities.effect_changes;
       let flavor_text_entries = abilities.flavor_text_entries;
       let pk = abilities.pokemon;
-
-      console.log(pk[0].pokemon.name);
 
       res.render('abilities', {
         id : id,
