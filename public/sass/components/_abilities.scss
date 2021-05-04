@@ -1,0 +1,37 @@
+.ability-title{
+    margin-top: 32px;
+}
+
+.abilities{
+    @include cssGrid(16px, auto auto);
+    @include pokeBorder;
+    padding: 48px;
+    margin: 16px auto 32px auto;
+    position: relative;
+    max-width: 80%;
+
+    .name-data::first-letter{
+        text-transform: uppercase;
+    }
+
+    .name-data{
+        padding: 2px 8px 2px 0px;
+    }
+
+    .desc-data{
+        padding: 2px 8px 2px 32px;
+    }
+
+    .pokemon-list{
+        grid-column-start: 1;
+        grid-column-end: 3;
+        @include cssGrid(8px, auto);
+
+        .pokemon-data{
+            display: flex;
+            align-items: center;
+            padding: 2px 8px 2px 32px;
+            text-transform: capitalize;
+        }
+    }
+}

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('../views/partials/head') %>
+    <script defer src="/js/home.js"></script>
+    <title>PokeDex</title>
+</head>
+<body>
+    <%- include('../views/partials/header') %>
+    <%- include('../views/partials/bag') %>
+    <main class="main">
+        <div class="wrapper">
+            <h1>Moves</h1>
+            <div class="moves">
+                <table>
+                    <tr>
+                        <td class="type">Type</td>
+                        <td class="type-data">
+                            <%= type.name %>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="category">Category</td>
+                        <td class="category-data">
+                            <%= damage_class.name %>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="pp">PP</td>
+                        <td class="pp-data">
+                            <%= pp %>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="power">Power</td>
+                        <td class="power-data">
+                            <% if (power) { %>
+                                <%= power %>
+                            <% } else { %>
+                            -----
+                            <% } %>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="accuracy">Accuracy</td>
+                        <td class="accuracy-data">
+                            <% if (accuracy) { %>
+                                <%= accuracy %>
+                            <% } else { %>
+                            -----
+                            <% } %>
+                        </td>
+                    </tr>
+                </table>
+                <div class="flavor_text-data">
+                    <% let i = 0 %> 
+                    <% flavor_text_entries.forEach(entry => { %>
+                        <div class="flavor-text" data-selector="<%= i %>" >
+                            <div class="flavor-name">
+                                <%= name %>  <%= entry.version_group.name %>
+                            </div>
+                            <div class="flavor-desc">
+                                <%= entry.flavor_text %>
+                            </div>
+                        </div>
+                        <% i++; %> 
+                    <% }) %>
+
+
+
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+</html>

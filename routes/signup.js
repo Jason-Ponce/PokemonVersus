@@ -1,13 +1,13 @@
 const express = require('express');
-const route = express.Router();
-const path = require('path');
 const newDBUser = require('../DB/user');
 const bodyParser = require('body-parser')
+const router = express.Router();
 
 
 
-route 
-    .route("/")
+
+router 
+    .router("/")
     .get((req, res) => {
         res.render('signup');
     })
@@ -31,20 +31,5 @@ route
             
         })
         
+module.exports = router
         
-        console.log('new user created')
-        module.exports = route
-        
-
-     // end of post
-
-    // route.post('/', async (req,res)=>{
-    //     const{name,email,password} = req.body;
-    //     let user = {};
-    //     user.name = name;
-    //     user.email = email;
-    //     user.password = password;
-    //     let userModel = new User(user);
-    //     await userModel.save();
-    //     res.json(userModel);
-    

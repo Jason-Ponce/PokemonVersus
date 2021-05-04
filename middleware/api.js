@@ -4,14 +4,6 @@ var P = new Pokedex();
 
 var baseurl = 'https://pokeapi.co/api/v2/';
 
-function apiReq(){
-  let pokeURL = baseurl + pokemonInput;
-  $.getJSON(pokeURL, function(data){
-    console.log(data);
-    console.log(JSON.stringify(data,null, " "));
-  }
-  )};
-  
 function apiCall(name){
   return new Promise((resolve, reject) => {
     if (name){
@@ -47,7 +39,7 @@ function getSpecies(name){
 function getMoves(name){
   return new Promise((resolve, reject) => {
     if (name){
-      P.getPokemonByName(name, function (api, error){
+      P.getMoveByName(name, function (api, error){
         if (!error) {
           resolve(api)
         } else {
@@ -63,16 +55,19 @@ function getMoves(name){
 function getAbilities(name){
   return new Promise((resolve, reject) => {
     if (name){
-      P.getAbilityByName(name)
-      resolve(function(response) {
-      console.log(response);
-    })
-      reject(function(error) {
-      console.log('There was an ERROR: ', error);
-    });
+      P.getAbilityByName(name, function (api, error){
+        if (!error) {
+          resolve(api)
+        } else {
+          reject(error);
+        }
+      });
+    } else {
+      reject("ability not found")
     }
-  })
-}
+    });
+  }
+
 
 
 

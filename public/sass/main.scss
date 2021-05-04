@@ -13,12 +13,16 @@
   'layout/grid',
   'layout/header',
   'layout/footer',
-  'layout/sidebar',
   'layout/forms';
 
 @import
   'components/continue',
   'components/input',
+  'components/moves',
+  'components/abilities',
+  'components/battle',
+  'components/pokebelt',
+  'components/bag',
   'components/buttons';
 
 @import

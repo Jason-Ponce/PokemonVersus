@@ -1,16 +1,13 @@
 const express = require('express');
 const router = express.Router();
-const path = require('path');
 const P = require('../middleware/api.js');
 const validate = require('../middleware/lookup.js');
 
 router
     .route("/")
     .post(async(req, res) => {
-      console.log(req.body)
       const pokemonInputOne = req.body.pokemonOne;
       const pokemonInputTwo = req.body.pokemonTwo;
-      console.log(randomPoke)
       if (pokemonInputOne && pokemonInputTwo){
         await getStats(pokemonInputOne, pokemonInputTwo);
         await comparePokemon(stat1, stat2);
@@ -29,7 +26,6 @@ var stat2 = 0;
 var randomPoke = Math.floor((Math.random() * 150) + 1);
 
 async function getStats(pokemonOne, pokemonTwo){
-  console.log("getting stats...")
   stat1 = 0;
   stat2 = 0;
   if (pokemonOne == '') {
