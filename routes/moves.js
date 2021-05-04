@@ -1,6 +1,5 @@
 const express = require('express');
 const router = express.Router();
-const path = require('path');
 const P = require('../middleware/api.js');
 const validate = require('../middleware/lookup.js');
 

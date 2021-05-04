@@ -7,28 +7,28 @@ const validate = require('../middleware/lookup.js');
 
 
 router.get('/', (req, res) => {
-  console.log(`====== HTTP Method Used: ${req.type} ======`)
   res.render('search');
 });
 
 router.post('/', async (req, res) => {
-  console.log(`====== HTTP Method Used: ${req.method} ======`)
-  console.log("/search POST starting...")
-  let lowerPoke;
+  let lowerPoke, lowerPokeSpecies;
   const pokemonOne = req.body.pokemonOne
   const pokemonTwo = req.body.pokemonTwo
   const navbarPokemon = req.body.navbarPokemon
-  console.log(req.body)
   if (pokemonOne){
     lowerPoke = validate.validateForm(pokemonOne);
+    lowerPokeSpecies = validate.validateForm(pokemonOne);
   }
   if (pokemonTwo) {
     lowerPoke = validate.validateForm(pokemonTwo);
+    lowerPokeSpecies = validate.validateForm(pokemonTwo);
   }
   if (navbarPokemon){
     lowerPoke = validate.validateForm(navbarPokemon);
+    lowerPokeSpecies = validate.validateForm(navbarPokemon);
   }
   const data = await P.apiCall(lowerPoke);
+  const speciesData = await P.getSpecies(lowerPokeSpecies);
 
   let abilities = data.abilities;
   let baseExp = data.base_experience;
@@ -40,19 +40,14 @@ router.post('/', async (req, res) => {
   let id = data.id;
   let moves = data.moves;
   let name = data.name;
-  let species = data.species;
   let sprites = data.sprites;
   let stats = data.stats;
   let types = data.types;
   let weight = data.weight;
-  
-  console.log(`Did you do a good job ${data.name.charAt(0).toUpperCase()+ data.name.slice(1)}?`)
 
-  for (stat in abilities){
-    console.log(abilities[stat]['ability']['name'])
-  }
-  console.log("If pokemon name is shown before POST ending, it works!")
-  console.log("/search POST ending...")
+  // for (stat in abilities){
+  //   console.log(abilities[stat]['ability']['name'])
+  // }
   res.render('search', {
     abilities : abilities,
     baseExp : baseExp,
@@ -64,8 +59,8 @@ router.post('/', async (req, res) => {
     id : id,
     moves : moves,
     name : name,
-    species : species,
     sprites : sprites,
+    species : speciesData,
     stats : stats,
     types : types,
     weight : weight
