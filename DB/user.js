@@ -1,27 +1,29 @@
 const mongoose = require('mongoose');
+const bodyParser = require('body-parser')
 
-const user = new mongoose.Schema({
+const userSchema = new mongoose.Schema({
     name: {
         type: String,
         required: true,
         minlength: 4,
-        maxlength: 25
+        maxlength: 25 
     },
-    email: {
+    email: { 
         type: String,
         required: true,
         minlength: 5,
         maxLength: 50,
         unique: true
     },
+    
     password: {
         type: String,
         required: true,
         minlength: 5,
-        maxLength: 50,
-    }
-}))
+        maxLength: 50
+    } 
+}); // end of userSchema
 
-module.exports = User = mongoose.model('user', user);
 
-//exports = mongoose.model('user', UserSchema);
+module.exports = newDBUser = mongoose.model('user',userSchema);
+

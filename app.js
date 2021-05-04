@@ -1,12 +1,14 @@
 const express = require('express')
 const app = express();
-const port = 8000;
 const bodyParser = require('body-parser');
 const connectDB = require('./DB/connection.js');
 //Listen to... 
 //localhost:8000
 
 connectDB()
+const Port = 8000;
+app.use(express.json());
+app.use('/routes/userModel', require('./routes/signup'))
 
 //serving static files
 app.use(express.static(__dirname + '/public'));
@@ -20,7 +22,7 @@ app.use(express.urlencoded({
     extended: true
   }))
 
-app.use(express.json());
+
 
 // ===================Routes=========================
 const homeRoute = require('./routes/home.js')
@@ -44,6 +46,6 @@ app.use('/signup', signupRoute);
 //then app.use('/NameTheRoute', [nameofRoute])
 // ===================================================
 
-app.listen(port, () => {
-    console.log(`Example app listening on port ${port}!`)
+app.listen(Port, () => {
+    console.log(`Example app listening on port ${Port}!`)
 });
