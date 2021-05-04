@@ -1,6 +1,5 @@
 const express = require('express');
 const router = express.Router();
-const path = require('path');
 const P = require('../middleware/api.js');
 const validate = require('../middleware/lookup.js');
 
@@ -27,7 +26,6 @@ var stat2 = 0;
 var randomPoke = Math.floor((Math.random() * 150) + 1);
 
 async function getStats(pokemonOne, pokemonTwo){
-  console.log("getting stats...")
   stat1 = 0;
   stat2 = 0;
   if (pokemonOne == '') {

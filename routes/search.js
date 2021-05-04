@@ -7,13 +7,10 @@ const validate = require('../middleware/lookup.js');
 
 
 router.get('/', (req, res) => {
-  console.log(`====== HTTP Method Used: ${req.type} ======`)
   res.render('search');
 });
 
 router.post('/', async (req, res) => {
-  console.log(`====== HTTP Method Used: ${req.method} ======`)
-  console.log("/search POST starting...")
   let lowerPoke, lowerPokeSpecies;
   const pokemonOne = req.body.pokemonOne
   const pokemonTwo = req.body.pokemonTwo
@@ -47,13 +44,10 @@ router.post('/', async (req, res) => {
   let stats = data.stats;
   let types = data.types;
   let weight = data.weight;
-  
-  console.log(`Did you do a good job ${data.name.charAt(0).toUpperCase()+ data.name.slice(1)}?`)
 
-  for (stat in abilities){
-    console.log(abilities[stat]['ability']['name'])
-  }
-  console.log("/search POST ending...")
+  // for (stat in abilities){
+  //   console.log(abilities[stat]['ability']['name'])
+  // }
   res.render('search', {
     abilities : abilities,
     baseExp : baseExp,
