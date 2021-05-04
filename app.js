@@ -1,5 +1,11 @@
 const express = require('express')
 const app = express();
+const connectDB = require('./DB/connection.js');
+
+connectDB()
+app.use(express.json());
+app.use('/routes/userModel', require('./routes/signup'))
+
 const port = process.env.PORT || 8000;
 const io = require('socket.io');
 //Listen to... 
@@ -18,7 +24,7 @@ app.use(express.urlencoded({
     extended: true
   }))
 
-app.use(express.json());
+
 
 // ===================Routes=========================
 const homeRoute = require('./routes/home.js')
@@ -45,6 +51,7 @@ app.use('/arena', arenaRoute);
 //each route needs [var/let/const] [nameofRoute] = require('./routes/[js file name]')
 //then app.use('/NameTheRoute', [nameofRoute])
 // ===================================================
+
 
 app.listen(port, () => {
     console.log(`Pokemon App Listening on port: ${port}`);
