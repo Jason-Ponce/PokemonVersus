@@ -23,7 +23,7 @@ function apiCall(name){
         }
       });
     } else {
-      reject("pokemon name not entered")
+      reject("pokemon name not entered" + name)
     }
   })
 }
