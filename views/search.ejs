@@ -6,8 +6,7 @@
     <title>PokeDex</title>
 </head>
 <body>
-    <%- include('../views/partials/header') %>
-    <%- include('../views/partials/pokebelt') %>
+    <%- include('../views/partials/header') %>  
     <%- include('../views/partials/bag') %>
     <main class="main">
         <div class="wrapper results">
@@ -15,7 +14,11 @@
                 <div class="pokemon-pic-front">
                     <!-- call pokemon image here -->
                     <!-- sprites.versions['generation-i']['red-blue'].front_default -->
-                    <img src="<%= sprites.front_default %>" alt="image of the pokemon <%= name %>">
+                    <% if (sprites.versions['generation-iii']['firered-leafgreen'].front_default == null) { %>
+                        <img src="<%= sprites.front_default %>" alt="image of the pokemon <%= name %>">
+                    <% } else { %>
+                        <img src="<%= sprites.versions['generation-iii']['firered-leafgreen'].front_default %>" alt="image of the pokemon <%= name %>">
+                    <% } %>
                     <div>
                         <!-- call pokemon name here -->
                         <%= name %>
@@ -28,7 +31,12 @@
 
                     </div>
                     <div class="pokemon-pic-back">
-                        <img src="<%= sprites.back_default %>" alt="image of the pokemon <%= name %>">
+                        <% if (sprites.versions['generation-iii']['firered-leafgreen'].back_default == null) { %>
+                            <img src="<%= sprites.back_default %>" alt="image of the pokemon <%= name %>">
+                        <% } else { %>
+                            <img src="<%= sprites.versions['generation-iii']['firered-leafgreen'].back_default %>" alt="image of the pokemon <%= name %>">
+                        <% } %>
+                        
                     </div>
                 </div>
                 <div class="pokemon-stats">
@@ -83,26 +91,32 @@
                         </div>
                     </div>
                 </div>
-                <div class="pokemon-types">
-                    Type 1 /
-                    <div class="type-one">
-                        <!-- call pokemon type1 here -->
-                        <%= types[0].type.name %>
+                <div class="pokemon-type-desc">
+                    <div class="pokemon-types">
+                        <div>Type 1 /</div>
+                        <div class="type-one">
+                            <!-- call pokemon type1 here -->
+                            <%= types[0].type.name %>
+                        </div>
+                        <div>Type 2 /</div>
+                        <div class="type-two">
+                            <!-- call pokemon type2 here -->
+                            <% if (typeof(types[1]) == "undefined") { %>
+                                ----
+                            <% } else { %>
+                                <%= types[1].type.name %>
+                            <% } %>
+                        </div>
                     </div>
-                    Type 2 /
-                    <div class="type-two">
-                        <!-- call pokemon type2 here -->
-                        <% if (typeof(types[1]) == "undefined") { %>
-                            
-                        <% } else { %>
-                            <%= types[1].type.name %>
-                        <% } %>
+                    <div class="pokemon-desc">
+                        <% const found = species.flavor_text_entries.find(el => el.language.name == "en") %>
+                        <%= found.flavor_text %>   
+
                     </div>
                 </div>
             </div>
         </div>
     </main>
-    <script src="/img/feather-icons/dist/feather.js" ></script>
 </body>
 </html>
 

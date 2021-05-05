@@ -4,14 +4,6 @@ var P = new Pokedex();
 
 var baseurl = 'https://pokeapi.co/api/v2/';
 
-// function apiReq(){
-//   let pokeURL = baseurl + pokemonInput;
-//   $.getJSON(pokeURL, function(data){
-//     console.log(data);
-//     console.log(JSON.stringify(data,null, " "));
-//   }
-//   )};
-  
 function apiCall(name){
   return new Promise((resolve, reject) => {
     if (name){

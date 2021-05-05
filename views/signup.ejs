@@ -7,11 +7,10 @@
 </head>
 <body>
     <%- include('../views/partials/header') %>
-    <%- include('../views/partials/pokebelt') %>
     <%- include('../views/partials/bag') %>
     <main class="main">
         <div class="wrapper">
-            <form action="/" method="POST" class="form-signup">
+            <form action="/signup" method="POST" class="form-signup">
                 <h1>Signup</h1>
                 <label for="username">Username</label>
                 <input type="text" id="username" name="username">
@@ -25,6 +24,5 @@
             </form>
         </div>
     </main>
-    <script src="/img/feather-icons/dist/feather.js" ></script>
 </body>
 </html>
