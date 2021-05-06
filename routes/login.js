@@ -6,12 +6,40 @@ router
     .get((req, res) => {
         res.render('login')
     })
-    .post((req, res) => {
-        let username = req.body.username;
-        let password = req.body.password;
-        res.send(`Username: ${username}<br>Password: ${password}`);
-        res.render('login')
+    .post(async (req, res) => {
+        console.log('Testing...')
+        const { username, password } = req.body
+        console.log(req.body, 'req.body')
+        console.log(username, 'username')
+        const login = await newDBUser.findOne({ name: username }).lean()
+       
 
-    })
+        if (!login) {
+            console.log("User not found")
+            return res.json({ status: 'error', error: 'Invalid username/password' })
+        } // end of first if
+    
+        if ( login.password == password) {
+            console.log(login.password)
+            console.log(password)
+            // the username, password combination is successful
+    
+            console.log('success')
+            
+            //x = res.json({ status: 'ok'})
+            res.redirect('/');
+           
+            
+            
+        } // end of second if
+
+        else 
+    
+        res.json({ status: 'error', error: 'Invalid username/password' })
+    }) // end of post
+    
+   
+
+    
 
 module.exports = router;
