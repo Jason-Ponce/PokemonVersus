@@ -13,7 +13,7 @@ app.use('/routes/userModel', require('./routes/signup'))
 //localhost:8000
 
 const morgan = require('morgan');
-app.use(morgan('dev'));
+// app.use(morgan('dev'));
 
 //serving static files
 app.use(express.static(__dirname + '/public'));

@@ -1,12 +1,12 @@
 const mongoose = require('mongoose');
+const newDBUser = require('./user.js')
  
 const pokebeltSchema = new mongoose.Schema({
-    user: {
-        type: Number,
-        // required: true
-    },
     pokemon1: {
-        type: String
+        type: String,
+        parent: [{
+            type: {type: mongoose.Types.ObjectId, ref: 'newDBUser'},
+        }]
     },
     pokemon2: {
         type: String
