@@ -230,9 +230,17 @@ a:visited {
           animation: flickerAnimation 1.5s infinite;
 }
 
+.continue-90:hover {
+  cursor: pointer;
+}
+
 .continue {
   -webkit-animation: flickerAnimation 1.5s infinite;
           animation: flickerAnimation 1.5s infinite;
+}
+
+.continue:hover {
+  cursor: pointer;
 }
 
 @-webkit-keyframes flickerAnimation {

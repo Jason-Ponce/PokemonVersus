@@ -1,1 +1,0 @@
-io.on("connection", socket => { /* ... */ });

@@ -3,11 +3,17 @@
     
     animation: flickerAnimation 1.5s infinite;
 
+    &:hover{
+        cursor: pointer;
+    }
 }
 
 .continue{    
     animation: flickerAnimation 1.5s infinite;
 
+    &:hover{
+        cursor: pointer;
+    }
 }
 
 @keyframes flickerAnimation {

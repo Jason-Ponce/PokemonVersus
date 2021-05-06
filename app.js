@@ -8,8 +8,7 @@ connectDB()
 app.use(express.json());
 app.use('/routes/userModel', require('./routes/signup'))
 
-const port = process.env.PORT || 8000;
-const io = require('socket.io');
+// const port = process.env.PORT || 8000;
 //Listen to... 
 //localhost:8000
 
@@ -59,6 +58,13 @@ app.use('/addToBelt', addToBelt);
 // ===================================================
 
 
-app.listen(port, () => {
-    console.log(`Pokemon App Listening on port: ${port}`);
+// app.listen(port, () => {
+//     console.log(`Pokemon App Listening on port: ${port}`);
+// });
+
+const server = app.listen(80, () => {
+  const host = server.address().address;
+  const port = server.address().port;
+
+  console.log(`Example app listening at http://${host}:${port}`);
 });
