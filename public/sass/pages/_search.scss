@@ -46,30 +46,41 @@
 
     .pokemon-stats{
         @include pokeBorder;
-        padding: 1rem;
+        padding: 1.5rem !important;
         div{
-            padding: 2px;
-            @include cssGrid(0, 1fr);
-
+            @include cssGrid(0px, auto);
             div{
                 justify-self: end;
             }
         }
     }
 
-    .pokemon-types{
-        @include cssGrid(0, 1fr);
-        height: 25%;
-        margin-top: 10vh;
-        margin-left: 5vw;
-        border-bottom: 5px solid black;
-        border-right: 5px solid black;
+    .pokemon-type-desc{
+        margin: 8px;
+        .pokemon-types{
+            @include cssGrid(0, 1fr);
+            height: 40%;
+            border-bottom: 5px solid black;
+            border-right: 5px solid black;
+            padding: 24px;
+    
+            div:nth-child(odd){
+                justify-self: center;
+            }
+            div:nth-child(even){
+                justify-self: end;
+            }
 
-        div{
-            justify-self: center;
+            .type-one::first-letter,.type-two::first-letter{
+                text-transform: uppercase
+            }
         }
-        .type-one::first-letter,.type-two::first-letter{
-            text-transform: uppercase
+        .pokemon-desc{
+            height: 60%;
+            @include pokeBorder;
+            padding: 2rem;
+            margin-top: 8px;
+
         }
     }
 }

@@ -16,6 +16,7 @@
         display: flex;
         flex-flow: row wrap;
         justify-self: center;
+        justify-content: space-evenly;
         width: 60%;
         padding: 5vh 0vh 8vh 0vh;
         gap: 8px;
@@ -23,7 +24,7 @@
 
         button{
             position: relative;
-            width: 20vh;
+            width: 22vh;
             height: 15vh;
             font-size: 16px;
             cursor: pointer;
@@ -34,6 +35,9 @@
         button:hover{
             background-color: $primary-color-dark;
             transition: .5s;
+        }
+        .formChanger{
+            
         }
     }
 

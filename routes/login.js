@@ -1,10 +1,14 @@
 const express = require('express');
+<<<<<<< HEAD
 const route = express.Router();
 const path = require('path');
 const newDBUser = require('../DB/user');
 const bodyParser = require('body-parser')
 const jwt = require('jsonwebtoken')
 const bcrypt = require('bcryptjs')
+=======
+const router = express.Router();
+>>>>>>> 5a4d7adb42d2f4c19cd9f8559665ff534b52d587
 
 const JWT_SECRET = 'mnusv78sove7s45shiurseusio7494hkjkcds7'
 

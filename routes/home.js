@@ -1,6 +1,5 @@
 const express = require('express');
 const router = express.Router();
-const path = require('path');
 const P = require('../middleware/api.js');
 const connectDB = require('../DB/connection.js');
 
@@ -10,8 +9,9 @@ router.get('/', (req, res) => {
 });
 
 router.post('/', (req, res) => {
-    res.render('home');
-    console.log(req.body)
+    const pokemon = req.body.pokemon
+    P.getPokemon(pokemon, res);
+    res.end()
   })
 
 

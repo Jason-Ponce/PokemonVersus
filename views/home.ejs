@@ -7,7 +7,6 @@
 </head>
 <body>
     <%- include('../views/partials/header') %>
-    <%- include('../views/partials/pokebelt') %>
     <%- include('../views/partials/bag') %>
     <main class="main">
         <div class="wrapper">
@@ -20,16 +19,16 @@
                 </span>
             </form>
             <div class="options">
-                <button role="button" class="formChanger" data-body="pokemonOne">Compare</button>
-                <button role="button" class="formChanger" data-body="pokemonOne">Stats</button>
-                <button role="button" class="formChanger" data-body="moves">Moves</button>
-                <button role="button" class="invisible"></button>
-                <button role="button" class="formChanger" data-body="abilities">Abilities</button>
+                <button type="button" class="formChanger" data-body="pokemonOne" data-action="search">PokeDex</button>
+                <!-- <button type="button" class="formChanger" data-body="pokemonOne" data-action="search">Stats</button> -->
+                <button type="button" class="formChanger" data-body="moves" data-action="moves">Moves</button>
+                <button type="button" class="formChanger" data-body="pokemonOne" data-action="compare">Compare</button>
+                <button type="button" class="formChanger" data-body="abilities" data-action="abilities">Abilities</button>
             </div>
         </div>
         <section class="about">
             <h2>About the app</h2>
-            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Excepturi eos voluptate quas asperiores laboriosam, perspiciatis ratione ad odit? Labore reprehenderit eius distinctio voluptatum placeat unde recusandae est consectetur nulla quisquam. <img src="/img/icons/enter.svg" alt="" class="continue"></p>
+            <p>This Pokemon app is created by Briana Marcosano, Jason Ponce, Alex White. We used PokeApi, Pokedex-Promise-V2, NodeJs, ExpressJs, MongoDb, and more.<img src="/img/icons/enter.svg" alt="" class="continue-90"></p>
         </section>
     </main>
 </body>
