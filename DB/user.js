@@ -1,5 +1,4 @@
 const mongoose = require('mongoose');
-const bodyParser = require('body-parser')
 
 const userSchema = new mongoose.Schema({
     name: {
@@ -25,5 +24,5 @@ const userSchema = new mongoose.Schema({
 }); // end of userSchema
 
 
-module.exports = newDBUser = mongoose.model('user',userSchema);
+module.exports = newDBUser = mongoose.model('login',userSchema);
 

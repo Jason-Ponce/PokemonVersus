@@ -1,6 +1,8 @@
 const express = require('express')
 const app = express();
 const connectDB = require('./DB/connection.js');
+const http = require("http").createServer(app);
+
 
 connectDB()
 app.use(express.json());
@@ -36,6 +38,8 @@ const signupRoute = require('./routes/signup.js')
 const movesRoute = require('./routes/moves.js')
 const abilitiesRoute = require('./routes/abilities.js')
 const arenaRoute = require('./routes/arena.js')
+const addToBelt = require('./routes/addToBelt.js')
+
 
 app.use('/', homeRoute);
 app.use('/about', aboutRoute);
@@ -46,6 +50,8 @@ app.use('/signup', signupRoute);
 app.use('/moves', movesRoute);
 app.use('/abilities', abilitiesRoute);
 app.use('/arena', arenaRoute);
+app.use('/addToBelt', addToBelt);
+
 
 
 //each route needs [var/let/const] [nameofRoute] = require('./routes/[js file name]')

@@ -1,13 +1,9 @@
 const express = require('express');
 const newDBUser = require('../DB/user');
-const bodyParser = require('body-parser')
 const router = express.Router();
 
-
-
-
 router 
-    .router("/")
+    .route("/")
     .get((req, res) => {
         res.render('signup');
     })
@@ -29,7 +25,7 @@ router
             console.log(error)
         }
             
-        })
+    })
         
 module.exports = router
         

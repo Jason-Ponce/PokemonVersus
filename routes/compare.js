@@ -23,7 +23,6 @@ router
 
 var stat1 = 0;
 var stat2 = 0;
-var randomPoke = Math.floor((Math.random() * 150) + 1);
 
 async function getStats(pokemonOne, pokemonTwo){
   stat1 = 0;
@@ -31,6 +30,7 @@ async function getStats(pokemonOne, pokemonTwo){
   if (pokemonOne == '') {
     console.log('input 1 null loop')
     console.log(pokemonTwo +' poke2')
+    let randomPoke = Math.floor((Math.random() * 150) + 1);
     let lowerPokeTwo = validate.validateForm(pokemonTwo);
     console.log(randomPoke)
 
@@ -60,7 +60,7 @@ async function getStats(pokemonOne, pokemonTwo){
     console.log(pokemonOne)
 
     let lowerPokeOne = validate.validateForm(pokemonOne);
-    // let randomPoke = Math.floor((Math.random() * 150) + 1);
+    let randomPoke = Math.floor((Math.random() * 150) + 1);
 
     let randomPokeData = await P.apiCall(randomPoke); 
     let dataOne = await P.apiCall(lowerPokeOne);
