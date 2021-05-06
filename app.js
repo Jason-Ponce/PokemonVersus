@@ -1,13 +1,14 @@
 const express = require('express')
 const app = express();
 const connectDB = require('./DB/connection.js');
+const bodyParser = require('body-parser')
 
 connectDB()
 app.use(express.json());
 app.use('/routes/userModel', require('./routes/signup'))
 
 const port = process.env.PORT || 8000;
-const io = require('socket.io');
+
 //Listen to... 
 //localhost:8000
 
@@ -20,12 +21,9 @@ app.use(express.static(__dirname + '/public'));
 //EJS template engine
 app.set('view engine', 'ejs');
 
-<<<<<<< HEAD
 app.use (bodyParser.urlencoded({extended: true}))
 app.use(bodyParser.json())
 
-=======
->>>>>>> 5a4d7adb42d2f4c19cd9f8559665ff534b52d587
 app.use(express.urlencoded({
     extended: true
   }))

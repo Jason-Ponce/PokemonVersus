@@ -1,59 +1,53 @@
 const express = require('express');
-<<<<<<< HEAD
-const route = express.Router();
+const router = express.Router();
 const path = require('path');
 const newDBUser = require('../DB/user');
 const bodyParser = require('body-parser')
 const jwt = require('jsonwebtoken')
-const bcrypt = require('bcryptjs')
-=======
-const router = express.Router();
->>>>>>> 5a4d7adb42d2f4c19cd9f8559665ff534b52d587
+
+
 
 const JWT_SECRET = 'mnusv78sove7s45shiurseusio7494hkjkcds7'
 
-route
+router
     .route("/")
     .get((req, res) => {
         res.render('login')
     })
     .post(async (req, res) => {
-        console.log('hey')
-        res.json({ status: 'ok'})
-        const {name, password} = req.body
-        console.log(name)
-        const user = await newDBUser.find({ name : 'abcdefg' })
+        console.log('Testing...')
+        const { username, password } = req.body
         console.log(req.body, 'req.body')
-        //const user = await newDBUser.find({ name })
-        console.log(user)
+        console.log(username, 'username')
+        const login = await newDBUser.findOne({ name: username }).lean()
+       
 
-        if (!user) {
-            console.log("heyyyyyyyyyyyyyyyyyyyy")
+        if (!login) {
+            console.log("User not found")
             return res.json({ status: 'error', error: 'Invalid username/password' })
-        }
+        } // end of first if
     
-        if (await bcrypt.compare(password, user.password)) {
-            console.log(user.password)
+        if ( login.password == password) {
+            console.log(login.password)
             console.log(password)
             // the username, password combination is successful
     
-            const token = jwt.sign(
-                {
-                    id: user._id,
-                    username: user.username
-                },
-                JWT_SECRET
-            )
             console.log('success')
-            return res.json({ status: 'ok', data: token })
             
-        }
+            //x = res.json({ status: 'ok'})
+            res.redirect('/');
+           
+            
+            
+        } // end of second if
+
+        else 
     
         res.json({ status: 'error', error: 'Invalid username/password' })
-    })
+    }) // end of post
     
    
 
     
 
-module.exports = route;
+module.exports = router;
