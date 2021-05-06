@@ -8,12 +8,12 @@
 <body>
     <%- include('../views/partials/header') %>  
     <%- include('../views/partials/bag') %>
+    <%- include('../views/partials/pokebelt') %>
     <main class="main">
         <div class="wrapper results">
             <div class="pokedex-grid">
+                <button id="addPokemon">Add To PokeBelt</button>
                 <div class="pokemon-pic-front">
-                    <!-- call pokemon image here -->
-                    <!-- sprites.versions['generation-i']['red-blue'].front_default -->
                     <% if (sprites.versions['generation-iii']['firered-leafgreen'].front_default == null) { %>
                         <img src="<%= sprites.front_default %>" alt="image of the pokemon <%= name %>">
                     <% } else { %>
