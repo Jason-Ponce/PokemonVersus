@@ -1,0 +1,93 @@
+.compare-grid{
+    display: grid;
+    grid-template-areas: 
+    "p1 p2"
+    "p1Stat p2Stat"
+    "result result";
+    column-gap: 2rem;
+    margin: 5vh 10vh 5vh 10vh;
+    justify-items: center;
+
+
+    .p1-pic-front{
+        @include flexAlignCenter;
+        height: 200px;
+        grid-area: p1;
+        margin-bottom: 1rem;
+    
+        img{
+            height: 200px;
+            filter: grayscale(100%);
+            z-index: 1;
+        }
+        div::first-letter{
+            text-transform: uppercase;
+        }
+    }
+    .p1-stats{
+        @include pokeBorder;
+        padding: 1.5rem !important;
+        grid-area: p1Stat;
+        width: 20vw;
+        div{
+            @include cssGrid(0px, auto);
+            div{
+                justify-self: end;
+            }
+        }
+    }
+    .p2-pic-front{
+        @include flexAlignCenter;
+        height: 200px;
+        grid-area: p2;
+
+        img{
+            height: 200px;
+            filter: grayscale(100%);
+            z-index: 1;
+        }
+        div::first-letter{
+            text-transform: uppercase;
+        }
+    }
+    .p2-stats{
+        @include pokeBorder;
+        padding: 1.5rem !important;
+        grid-area: p2Stat;
+        width: 20vw;
+        div{
+            @include cssGrid(0px, auto);
+            div{
+                justify-self: end;
+            }
+        }
+    }
+
+    .compare-result{
+        @include pokeBorder;
+        grid-area: result;
+        padding: 2rem;
+        margin-top: 3vh;
+        margin-bottom: 5vh;
+
+        &::first-letter{
+            text-transform: capitalize;
+        }
+
+        .upper{
+            text-transform: capitalize;
+        }
+    }
+
+}
+.winner{
+    animation: jumpAni 2s infinite;
+    filter: grayscale(0%) !important;
+
+}
+
+@keyframes jumpAni{
+	0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
+	40% {transform: translateY(-40px);}
+	60% {transform: translateY(-25px);}
+}

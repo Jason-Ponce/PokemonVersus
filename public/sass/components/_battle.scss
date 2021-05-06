@@ -254,5 +254,24 @@
         grid-area: right-screen;
         @include pokeBorder;
         background-color: $arena-color;
+        display: grid;
+        grid-template-rows: 70% 1% 29%;
+        position: relative;
+
+        .player-screen{
+            height: 100%;
+            width: 100%;
+            
+        }
+        .divider{
+            height: 4px;
+            background-color: lightgray;
+            margin: auto;
+            width: 90%;
+        }
+        .player-reply-screen{
+            height: 100%;
+            width: 100%;
+        }
     }
 }
