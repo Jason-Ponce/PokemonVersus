@@ -18,7 +18,7 @@ router
         console.log(userModel, "user model")
         try { 
             await userModel.save();
-            res.json(userModel);
+            res.redirect('/');
         } // end of try
 
         catch(error) {
