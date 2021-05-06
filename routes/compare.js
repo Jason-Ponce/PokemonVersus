@@ -37,6 +37,7 @@ async function getStats(pokemonOne, pokemonTwo){
   if (pokemonOne == '') {
     console.log('input 1 null loop')
     console.log(pokemonTwo +' poke2')
+    let randomPoke = Math.floor((Math.random() * 150) + 1);
     let lowerPokeTwo = validate.validateForm(pokemonTwo);
     console.log(randomPoke)
 
@@ -70,6 +71,7 @@ async function getStats(pokemonOne, pokemonTwo){
     console.log(pokemonOne)
 
     let lowerPokeOne = validate.validateForm(pokemonOne);
+    let randomPoke = Math.floor((Math.random() * 150) + 1);
 
     let randomPokeData = await P.apiCall(randomPoke); 
     let dataOne = await P.apiCall(lowerPokeOne);

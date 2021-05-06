@@ -45,9 +45,6 @@ router.post('/', async (req, res) => {
   let types = data.types;
   let weight = data.weight;
 
-  // for (stat in abilities){
-  //   console.log(abilities[stat]['ability']['name'])
-  // }
   res.render('search', {
     abilities : abilities,
     baseExp : baseExp,
