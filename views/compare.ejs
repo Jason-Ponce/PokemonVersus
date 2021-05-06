@@ -6,7 +6,8 @@
     <title>PokeDex</title>
 </head>
 <body>
-    <%- include('../views/partials/header') %>  
+    <%- include('../views/partials/header') %> 
+    <%- include('../views/partials/pokebelt') %> 
     <%- include('../views/partials/bag') %>
     <main class="main">
         <div class="wrapper">
@@ -15,7 +16,7 @@
                     <!-- call pokemon image here -->
                     <!-- sprites.versions['generation-i']['red-blue'].front_default -->
                     <% if (poke.p1.sprites.versions['generation-iii']['firered-leafgreen'].front_default == null) { %>
-                        <img src="<%= poke.p1.sprites.front_default %>" alt="image of the pokemon <%= poke.p1.name %>" data-pokemon=<%= poke.p1.name %>  id="<%= poke.p2.name %>">
+                        <img src="<%= poke.p1.sprites.front_default %>" alt="image of the pokemon <%= poke.p1.name %>" data-pokemon=<%= poke.p1.name %>  id="<%= poke.p1.name %>">
                     <% } else { %>
                         <img src="<%= poke.p1.sprites.versions['generation-iii']['firered-leafgreen'].front_default %>" alt="image of the pokemon <%= poke.p1.name %>"  data-pokemon=<%= poke.p1.name %> id="<%= poke.p1.name %>">
                     <% } %>

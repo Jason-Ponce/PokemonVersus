@@ -919,6 +919,32 @@ button {
   min-width: 60vw;
 }
 
+.pokedex-grid #addPokemon {
+  position: absolute;
+  border-style: solid;
+  border-image-slice: 11.5% 11.5% 11.5% 11.5%;
+  border-image-width: 1.5em 1.5em 1.5em 1.5em;
+  border-image-outset: 0px 0px 0px 0px;
+  border-image-repeat: round round;
+  border-image-source: url(/img/icons/border.svg);
+  border-radius: 5px;
+  padding: 16px;
+  top: 24px;
+  left: 24px;
+  cursor: pointer;
+  background-color: #ebebeb;
+}
+
+.pokedex-grid #addPokemon:hover {
+  background-color: #a3a3a3;
+  -webkit-transition: .5s;
+  transition: .5s;
+}
+
+.pokedex-grid #addPokemon:active {
+  background-color: #f8f8f8;
+}
+
 .pokedex-grid .pokemon-pic-front {
   display: -webkit-box;
   display: -ms-flexbox;

@@ -12,10 +12,8 @@ router
       let pokeCompare;
       if (pokemonInputOne && pokemonInputTwo){
         pokeObj = await getStats(pokemonInputOne, pokemonInputTwo);
-        console.log("==========")
-        console.log(pokeObj.p1.name)
         pokeCompare = await comparePokemon(pokeObj.p1.name, stat1, pokeObj.p2.name, stat2);
-      } else if (pokemonInputOne == ''){
+      } else if (pokemonInputTwo == ''){
         pokeObj = await getStats(pokemonInputOne, pokemonInputTwo);
         pokeCompare = await comparePokemon(pokeObj.p1.name, stat1, pokeObj.p2.name, stat2);
       }
@@ -28,13 +26,13 @@ router
 
 var stat1 = 0;
 var stat2 = 0;
-var randomPoke = Math.floor((Math.random() * 150) + 1);
 
 async function getStats(pokemonOne, pokemonTwo){
   stat1 = 0;
   stat2 = 0;
   let returnApICall = {};
-
+  var randomPoke = Math.floor((Math.random() * 150) + 1);
+  
   //if first pokemon entry is empty
   if (pokemonOne == '') {
     console.log('input 1 null loop')
@@ -72,7 +70,6 @@ async function getStats(pokemonOne, pokemonTwo){
     console.log(pokemonOne)
 
     let lowerPokeOne = validate.validateForm(pokemonOne);
-    // let randomPoke = Math.floor((Math.random() * 150) + 1);
 
     let randomPokeData = await P.apiCall(randomPoke); 
     let dataOne = await P.apiCall(lowerPokeOne);
@@ -86,7 +83,7 @@ async function getStats(pokemonOne, pokemonTwo){
     console.log(stat1)
 
     for (stat in dataOneStats){
-      stat2 += dataTwoStats[stat]['base_stat']
+      stat2 += dataOneStats[stat]['base_stat']
     }
     returnApICall.p1 = dataOne;
     returnApICall.p2 = randomPokeData;
