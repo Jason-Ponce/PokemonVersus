@@ -1,8 +1,7 @@
 
 function send () {
     var sendData = {
-      //value: document.getElementById('addPokemon').value
-        value: 'pikapeeee'
+      value: document.getElementById('addPokemon').value
     }
     var xhr = new window.XMLHttpRequest()
     xhr.open('POST', '/addToBelt', true)
