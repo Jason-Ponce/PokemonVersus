@@ -1,4 +1,3 @@
-
 function send () {
     var sendData = {
       value: document.getElementById('addPokemon').value

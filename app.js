@@ -14,7 +14,7 @@ const io = require('socket.io');
 //localhost:8000
 
 const morgan = require('morgan');
-app.use(morgan('dev'));
+// app.use(morgan('dev'));
 
 //serving static files
 app.use(express.static(__dirname + '/public'));

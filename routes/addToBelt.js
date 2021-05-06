@@ -26,7 +26,7 @@ router
         try {
             await pokeModel.save()
             res.json(pokeModel);
-            console.log('working?')
+            console.log(`${req.body} added`)
         } catch(error) {
             console.log(error)
         }
