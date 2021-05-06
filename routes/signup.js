@@ -13,11 +13,11 @@ route
     })
     .post(async (req, res) => {
         console.log(req.body, "req.body")
-        const{username,email,password} = req.body;
+        const{username,email,password: plainTextPassword} = req.body;
         let userObj = {};
         userObj.name = username;
         userObj.email = email;
-        userObj.password = password;
+        userObj.password = await bcrypt.hash(plainTextPassword, 10)
         let userModel = new newDBUser(userObj);
         console.log(userModel, "user model")
         try { 
