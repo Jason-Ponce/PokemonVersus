@@ -1,5 +1,13 @@
 const express = require('express');
 const router = express.Router();
+const path = require('path');
+const newDBUser = require('../DB/user');
+const bodyParser = require('body-parser')
+const jwt = require('jsonwebtoken')
+
+
+
+const JWT_SECRET = 'mnusv78sove7s45shiurseusio7494hkjkcds7'
 
 router
     .route("/")
