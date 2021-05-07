@@ -1,0 +1,7 @@
+.pokemon-grid .pokemon-pic {
+  background-color: red;
+}
+
+.pokemon-grid .pokemon-pic img {
+  height: 150%;
+}

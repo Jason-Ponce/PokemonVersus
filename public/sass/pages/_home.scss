@@ -2,34 +2,42 @@
     @include flexAlignCenter;
     background-color: $tertiary-color-light;
     width: fit-content;
-    height: 50vw;
+    max-width: 70%;
+    height: fit-content;
+    min-height: 75vh;
     margin: auto;
     margin-top: 1rem;
     margin-bottom: 1rem;
     @include pokeBorder;
-    
-    
 
-    .form-wrapper{
-        @include cssGrid(1rem, 1 );
+    
+    .options{
         margin: auto;
-        padding: 15vw;
-        border-image-slice:6% 6% 6% 5%;
-        border-image-width:1.5em 1.5em 1.5em 1.5em;
-        border-image-outset:0px 0px 0px 0px;
-        border-image-repeat:round round;
-        border-image-source: url(/img/icons/border.svg);
+        display: flex;
+        flex-flow: row wrap;
+        justify-self: center;
+        justify-content: space-evenly;
+        width: 60%;
+        padding: 5vh 0vh 8vh 0vh;
+        gap: 8px;
+        flex-basis: 10px;
 
-        *{
-            @include flexAlignCenter;
+        button{
+            position: relative;
+            width: 22vh;
+            height: 15vh;
+            font-size: 16px;
+            cursor: pointer;
+            @include pokeBorder;
+            padding: 16px;
+            background-color: $secondary-color;
         }
-
-
-
-        span{
-            display: flex;
-            flex-direction: row;
-            column-gap: 1rem;
+        button:hover{
+            background-color: $primary-color-dark;
+            transition: .5s;
+        }
+        .formChanger{
+            
         }
     }
 

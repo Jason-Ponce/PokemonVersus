@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('../views/partials/head') %>
+    <script defer src="/js/home.js"></script>
+    <title>PokeDex</title>
+</head>
+<body>
+    <%- include('../views/partials/header') %> 
+    <%- include('../views/partials/pokebelt') %> 
+    <%- include('../views/partials/bag') %>
+    <main class="main">
+        <div class="wrapper">
+            <div class="compare-grid">
+                <div class="p1-pic-front">
+                    <!-- call pokemon image here -->
+                    <!-- sprites.versions['generation-i']['red-blue'].front_default -->
+                    <% if (poke.p1.sprites.versions['generation-iii']['firered-leafgreen'].front_default == null) { %>
+                        <img src="<%= poke.p1.sprites.front_default %>" alt="image of the pokemon <%= poke.p1.name %>" data-pokemon=<%= poke.p1.name %>  id="<%= poke.p1.name %>">
+                    <% } else { %>
+                        <img src="<%= poke.p1.sprites.versions['generation-iii']['firered-leafgreen'].front_default %>" alt="image of the pokemon <%= poke.p1.name %>"  data-pokemon=<%= poke.p1.name %> id="<%= poke.p1.name %>">
+                    <% } %>
+                    <div>
+                        <!-- call pokemon name here -->
+                        <%= poke.p1.name %>
+                    </div>
+                </div>
+                <div class="p1-stats">
+                    Base Stats
+                    <div>
+                        HP
+                        <div class="hp">
+                            <!-- call pokemon hp here -->
+                            <%= poke.p1.stats[0].base_stat %>
+                        </div>
+                    </div>
+                    <div>
+                        ATTACK
+                        <div class="attack">
+                            <!-- call pokemon attack here -->
+                            <%= poke.p1.stats[1].base_stat %>
+                        </div>
+                    </div>
+                    <div>
+                        DEFENSE
+                        <div class="defense">
+                            <!-- call pokemon defense here -->
+                            <%= poke.p1.stats[2].base_stat %>
+                        </div>
+                    </div>
+                    <div>
+                        Sp.ATK
+                        <div class="spAtk">
+                            <!-- call pokemon special attack here -->
+                            <%= poke.p1.stats[3].base_stat %>
+                        </div>
+                    </div>
+                    <div>
+                        Sp.DEF
+                        <div class="spDef">
+                            <!-- call pokemon special defense here -->
+                            <%= poke.p1.stats[4].base_stat %>
+                        </div>
+                    </div>
+                    <div>
+                        SPEED
+                        <div class="speed">
+                            <!-- call pokemon speed here -->
+                            <%= poke.p1.stats[5].base_stat %>
+                        </div>
+                    </div>
+                    <div>
+                        TOTAL
+                        <div class="total">
+                            <!-- call pokemon total here -->
+                            <%= poke.p1.stats[0].base_stat + poke.p1.stats[1].base_stat + poke.p1.stats[2].base_stat + poke.p1.stats[3].base_stat + poke.p1.stats[4].base_stat + poke.p1.stats[5].base_stat %>
+                        </div>
+                    </div>
+                </div>
+                <div class="p2-pic-front">
+                    <!-- call pokemon image here -->
+                    <!-- sprites.versions['generation-i']['red-blue'].front_default -->
+                    <% if (poke.p2.sprites.versions['generation-iii']['firered-leafgreen'].front_default == null) { %>
+                        <img src="<%= poke.p2.sprites.front_default %>" alt="image of the pokemon <%= poke.p2.name %>"  data-pokemon=<%= poke.p2.name %> id="<%= poke.p2.name %>">
+                    <% } else { %>
+                        <img src="<%= poke.p2.sprites.versions['generation-iii']['firered-leafgreen'].front_default %>" alt="image of the pokemon <%= poke.p2.name %>"  data-pokemon=<%= poke.p2.name %> id="<%= poke.p2.name %>">
+                    <% } %>
+                    <div>
+                        <!-- call pokemon name here -->
+                        <%= poke.p2.name %>
+                    </div>
+                </div>
+                <div class="p2-stats">
+                    Base Stats
+                    <div>
+                        HP
+                        <div class="hp">
+                            <!-- call pokemon hp here -->
+                            <%= poke.p2.stats[0].base_stat %>
+                        </div>
+                    </div>
+                    <div>
+                        ATTACK
+                        <div class="attack">
+                            <!-- call pokemon attack here -->
+                            <%= poke.p2.stats[1].base_stat %>
+                        </div>
+                    </div>
+                    <div>
+                        DEFENSE
+                        <div class="defense">
+                            <!-- call pokemon defense here -->
+                            <%= poke.p2.stats[2].base_stat %>
+                        </div>
+                    </div>
+                    <div>
+                        Sp.ATK
+                        <div class="spAtk">
+                            <!-- call pokemon special attack here -->
+                            <%= poke.p2.stats[3].base_stat %>
+                        </div>
+                    </div>
+                    <div>
+                        Sp.DEF
+                        <div class="spDef">
+                            <!-- call pokemon special defense here -->
+                            <%= poke.p2.stats[4].base_stat %>
+                        </div>
+                    </div>
+                    <div>
+                        SPEED
+                        <div class="speed">
+                            <!-- call pokemon speed here -->
+                            <%= poke.p2.stats[5].base_stat %>
+                        </div>
+                    </div>
+                    <div>
+                        TOTAL
+                        <div class="total">
+                            <!-- call pokemon total here -->
+                            <%= poke.p2.stats[0].base_stat + poke.p2.stats[1].base_stat + poke.p2.stats[2].base_stat + poke.p2.stats[3].base_stat + poke.p2.stats[4].base_stat + poke.p2.stats[5].base_stat %>
+                        </div>
+                    </div>
+                </div>
+                <div class="compare-result">
+                    <% if (answer.second) { %>
+                        <%= answer.first %> and <span class="upper"><%= answer.second %></span> <%= answer.text %>
+                    <% } else { %>
+                    <%= answer.name %> <%= answer.text %>
+                    <% } %>
+                </div>
+            </div>
+        </div>
+    </main>
+    <script src="./js/comparePage.js" defer></script>
+</body>
+</html>
+

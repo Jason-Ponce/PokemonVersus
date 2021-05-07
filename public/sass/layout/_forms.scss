@@ -1,0 +1,46 @@
+.form-wrapper{
+    @include cssGrid(1rem, 1 );
+    margin-left: auto;
+    margin-right: auto;
+    padding: 8vw 15vw 0vw 15vw;
+
+    *{
+        @include flexAlignCenter;
+    }
+
+    span{
+        display: flex;
+        flex-direction: row;
+        column-gap: 1rem;
+    }
+}
+
+.form-login{
+    @include cssGrid(1rem , auto );
+    margin: 4rem 6rem 4rem 6rem;
+
+    label{
+        text-align: left;
+    }
+
+    span{
+        display: flex;
+        flex-direction: row;
+        column-gap: 1rem;
+    }
+}
+
+.form-signup{
+    @include cssGrid(1rem , auto );
+    margin: 4rem 6rem 4rem 6rem;
+
+    label{
+        text-align: left;
+    }
+
+    span{
+        display: flex;
+        flex-direction: row;
+        column-gap: 1rem;
+    }
+}

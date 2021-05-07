@@ -1,0 +1,108 @@
+.results{
+    height: fit-content !important;
+    position: relative;
+    width: min-content;
+}
+
+.main{
+    margin-top: 13.5vh;
+}
+
+.pokedex-grid{
+    @include cssGrid(16px, 1fr 1fr);
+    padding: 2.5rem;
+    min-width: 60vw;
+
+    #addPokemon{
+        position: absolute;
+        @include pokeBorder;
+        border-radius: 5px;
+        padding: 16px;
+        top: 24px;
+        left: 24px;
+        cursor: pointer;
+        background-color: rgb(235, 235, 235);
+
+        &:hover{
+            background-color: rgb(163, 163, 163);
+            transition: .5s;
+        }
+
+        &:active{
+            background-color: rgb(248, 248, 248);
+        }
+    }
+
+    .pokemon-pic-front{
+        @include flexAlignCenter;
+        height: 200px;
+        // width: 256px;
+    
+            img{
+                height: 200px;
+                filter: grayscale(100%);
+                z-index: 1;
+            }
+            div::first-letter{
+                text-transform: uppercase;
+            }
+    }
+    
+    .pokemon-info{
+        @include flexAlignCenter;
+        border-bottom: 5px solid black;
+        
+        .pokemon-pic-back{
+            @include flexAlignCenter;
+            height: 200px;
+            img{
+                height: 200px;
+                // width: 256px;
+                filter: grayscale(100%);
+                z-index: 1;
+            }
+        }
+    }
+
+    .pokemon-stats{
+        @include pokeBorder;
+        padding: 1.5rem !important;
+        div{
+            @include cssGrid(0px, auto);
+            div{
+                justify-self: end;
+            }
+        }
+    }
+
+    .pokemon-type-desc{
+        margin: 8px;
+        .pokemon-types{
+            @include cssGrid(0, 1fr);
+            height: 40%;
+            border-bottom: 5px solid black;
+            border-right: 5px solid black;
+            padding: 24px;
+    
+            div:nth-child(odd){
+                justify-self: center;
+            }
+            div:nth-child(even){
+                justify-self: end;
+            }
+
+            .type-one::first-letter,.type-two::first-letter{
+                text-transform: uppercase
+            }
+        }
+        .pokemon-desc{
+            height: 60%;
+            @include pokeBorder;
+            padding: 2rem;
+            margin-top: 8px;
+
+        }
+    }
+}
+
+

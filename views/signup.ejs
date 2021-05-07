@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('../views/partials/head') %>
+    <script defer src="/js/home.js"></script>
+    <title>PokeDex</title>
+</head>
+<body>
+    <%- include('../views/partials/header') %>
+    <%- include('../views/partials/bag') %>
+    <main class="main">
+        <div class="wrapper">
+            <form action="/signup" method="POST" class="form-signup">
+                <h1>Signup</h1>
+                <label for="username">Username</label>
+                <input type="text" id="username" name="username">
+                <label for="password">Password</label>
+                <input type="password" name="password" id="password">
+                <label for="repeat-password">Repeat Password</label>
+                <input type="password" name="repeat-password" id="repeat-password">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email">
+                <button type="submit" class="login-btn">Signup</button>
+            </form>
+        </div>
+    </main>
+</body>
+</html>

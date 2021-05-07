@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('../views/partials/head') %>
+    <script defer src="/js/home.js"></script>
+    <title>PokeDex</title>
+</head>
+<body>
+    <%- include('../views/partials/header') %>  
+    <%- include('../views/partials/bag') %>
+    <%- include('../views/partials/pokebelt') %>
+    <main class="main">
+        <div class="wrapper results">
+            <div class="pokedex-grid">
+                <button id="addPokemon" value="<%= name %>">Add To PokeBelt</button>
+                <div class="pokemon-pic-front">
+                    <% if (sprites.versions['generation-iii']['firered-leafgreen'].front_default == null) { %>
+                        <img src="<%= sprites.front_default %>" alt="image of the pokemon <%= name %>">
+                    <% } else { %>
+                        <img src="<%= sprites.versions['generation-iii']['firered-leafgreen'].front_default %>" alt="image of the pokemon <%= name %>">
+                    <% } %>
+                    <div>
+                        <!-- call pokemon name here -->
+                        <%= name %>
+                    </div>
+                </div>
+                <div class="pokemon-info">
+                    <div class="pokemon-number">
+                        <!-- call pokemon number here -->
+                        No.<%= id %>
+
+                    </div>
+                    <div class="pokemon-pic-back">
+                        <% if (sprites.versions['generation-iii']['firered-leafgreen'].back_default == null) { %>
+                            <img src="<%= sprites.back_default %>" alt="image of the pokemon <%= name %>">
+                        <% } else { %>
+                            <img src="<%= sprites.versions['generation-iii']['firered-leafgreen'].back_default %>" alt="image of the pokemon <%= name %>">
+                        <% } %>
+                        
+                    </div>
+                </div>
+                <div class="pokemon-stats">
+                    Base Stats
+                    <div>
+                        HP
+                        <div class="hp">
+                            <!-- call pokemon hp here -->
+                            <%= stats[0].base_stat %>
+                        </div>
+                    </div>
+                    <div>
+                        ATTACK
+                        <div class="attack">
+                            <!-- call pokemon attack here -->
+                            <%= stats[1].base_stat %>
+                        </div>
+                    </div>
+                    <div>
+                        DEFENSE
+                        <div class="defense">
+                            <!-- call pokemon defense here -->
+                            <%= stats[2].base_stat %>
+                        </div>
+                    </div>
+                    <div>
+                        Sp.ATK
+                        <div class="spAtk">
+                            <!-- call pokemon special attack here -->
+                            <%= stats[3].base_stat %>
+                        </div>
+                    </div>
+                    <div>
+                        Sp.DEF
+                        <div class="spDef">
+                            <!-- call pokemon special defense here -->
+                            <%= stats[4].base_stat %>
+                        </div>
+                    </div>
+                    <div>
+                        SPEED
+                        <div class="speed">
+                            <!-- call pokemon speed here -->
+                            <%= stats[5].base_stat %>
+                        </div>
+                    </div>
+                    <div>
+                        TOTAL
+                        <div class="total">
+                            <!-- call pokemon total here -->
+                            <%= stats[0].base_stat + stats[1].base_stat + stats[2].base_stat + stats[3].base_stat + stats[4].base_stat + stats[5].base_stat %>
+                        </div>
+                    </div>
+                </div>
+                <div class="pokemon-type-desc">
+                    <div class="pokemon-types">
+                        <div>Type 1 /</div>
+                        <div class="type-one">
+                            <!-- call pokemon type1 here -->
+                            <%= types[0].type.name %>
+                        </div>
+                        <div>Type 2 /</div>
+                        <div class="type-two">
+                            <!-- call pokemon type2 here -->
+                            <% if (typeof(types[1]) == "undefined") { %>
+                                ----
+                            <% } else { %>
+                                <%= types[1].type.name %>
+                            <% } %>
+                        </div>
+                    </div>
+                    <div class="pokemon-desc">
+                        <% const found = species.flavor_text_entries.find(el => el.language.name == "en") %>
+                        <%= found.flavor_text %>   
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <script src='./js/clientBelt.js'></script>
+</body>
+</html>
+

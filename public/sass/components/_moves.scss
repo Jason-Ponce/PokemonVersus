@@ -1,0 +1,45 @@
+.moves{
+    @include cssGrid(8px, auto auto);
+    @include pokeBorder;
+    padding: 32px;
+    margin: 16px;
+    position: relative;
+    max-width: 80%;
+
+    table, th, td {
+        border: 2px double black;
+    }
+    
+    td:nth-child(even){
+        text-align: left;
+        padding: 2px 8px 2px 32px;
+    }
+
+    td:nth-child(even)::first-letter{
+        text-transform: uppercase;
+    }
+
+    td:nth-child(odd){
+        text-align: left;
+        padding: 2px 8px 2px 32px;
+    }
+
+    .flavor_text-data{
+        position: relative;
+        margin: 1rem;
+        padding: 8px 8px 8px 8px;
+
+        .flavor-text{
+            display: none;
+            // @include cssGrid(0px, auto auto);
+            .flavor-name{
+                text-transform: capitalize;
+                margin-bottom: 1rem;
+            }
+        }
+
+        .flavor-text:nth-child(1){
+            display: block;
+        }
+    }
+}

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('../views/partials/head') %>
+    <script defer src="/js/home.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.js"></script>
+    <title>PokeDex</title>
+</head>
+<body>
+    <%- include('../views/partials/header') %>
+    <!-- <%- include('../views/partials/bag') %> -->
+    <main class="main">
+        <div class="battle">
+            <div class="left-screen">
+                <%- include('../views/partials/pokebelt') %>
+            </div>
+            <div class="battle-screen">
+                <div class="battle-active">
+                    <div class="top">
+                        <div class="pokemonTwo-stats">
+                            <div class="pokemonTwo-name">
+                                <%= game.opponent.name %> 
+                            </div>
+                            <div class="pokemonTwo-level">
+                                <span>:</span><span>L</span><span><%= game.opponent.level %> </span>
+                            </div>
+                            <div class="pokemonTwo-hp">
+                                <div class="status-container">
+                                    <div>HP:</div>
+                                    <div class="status-bar-container">
+                                        <div class="status-bar" id="pokemonTwoStatus"></div>
+                                    </div>
+                                </div>
+                                <div class="hp-status">
+                                    <%= game.opponent.hp %>/3 
+                                </div>
+                            </div>
+                        </div>
+                        <div class="pokemonTwo">
+                            <img src="<%= game.opponent.imgLoc %> " alt="image of <%= game.opponent.name %> ">
+                        </div>
+                    </div>
+                    <div class="bottom">
+                        <div class="pokemonOne-stats">
+                            <div class="pokemonOne-name">
+                                <%= game.user.name %> 
+                            </div>
+                            <div class="pokemonOne-level">
+                                <span>:</span><span>L</span><span><%= game.opponent.level %> </span> 
+                            </div>
+                            <div class="pokemonOne-hp">
+                                <div class="status-container">
+                                    <div>HP:</div>
+                                    <div class="status-bar-container">
+                                        <div class="status-bar" id="pokemonOneStatus"></div>
+                                    </div>
+                                </div>
+                                <div class="hp-status">
+                                    <%= game.user.hp %>/3 
+                                </div>
+                            </div>
+                        </div>
+                        <div class="pokemonOne">
+                            <div>
+                                <img src="<%= game.user.imgLoc %> " alt="image of <%= game.user.name %> ">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="battle-inactive">
+                    <button type="button" class="arena">Login!</button>
+                    <button type="button" class="arena" id="test">Battle!</button>     
+                </div>
+            </div>
+            <div class="action-screen">
+                <div class="join-screen">
+
+                </div>
+                <div class="action-choice-screen">
+
+                </div>
+            </div>
+            <div class="right-screen">
+                <div class="player-screen">
+
+                </div>
+                <div class="divider"></div>
+                <div class="player-reply-screen">
+
+                </div>
+            </div>
+        </div>
+    </main>
+    <script src="./js/arena.js"></script>
+    <script src="./js/socket.js"></script>
+</body>
+</html>

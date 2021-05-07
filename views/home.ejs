@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('../views/partials/head') %>
+    <script defer src="/js/home.js"></script>
+    <title>PokeDex</title>
+</head>
+<body>
+    <%- include('../views/partials/header') %>
+    <%- include('../views/partials/pokebelt') %>
+    <%- include('../views/partials/bag') %>
+    <main class="main">
+        <div class="wrapper">
+            <form action="/search" method="POST" class="form-wrapper">
+                <H1>PokeMon App</H1>
+                <label for="pokemon">I choose you</label>
+                <span>
+                    <input type="text" id="pokemonOne" name="pokemonOne" placeholder="Name or number" minlength="0" maxlength="12" size="25" autofocus>
+                    <button type="submit" class="continue-90"><img src="/img/icons/enter.svg" alt=""></button>
+                </span>
+            </form>
+            <div class="options">
+                <button type="button" class="formChanger" data-body="pokemonOne" data-action="search">PokeDex</button>
+                <!-- <button type="button" class="formChanger" data-body="pokemonOne" data-action="search">Stats</button> -->
+                <button type="button" class="formChanger" data-body="moves" data-action="moves">Moves</button>
+                <button type="button" class="formChanger" data-body="pokemonOne" data-action="compare">Compare</button>
+                <button type="button" class="formChanger" data-body="abilities" data-action="abilities">Abilities</button>
+            </div>
+        </div>
+        <section class="about">
+            <h2>About the app</h2>
+            <p>This Pokemon app is created by Briana Marcosano, Jason Ponce, Alex White. We used PokeApi, Pokedex-Promise-V2, NodeJs, ExpressJs, MongoDb, and more.<img src="/img/icons/enter.svg" alt="" class="continue-90"></p>
+        </section>
+    </main>
+</body>
+</html>

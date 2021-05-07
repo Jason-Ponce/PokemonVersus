@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('../views/partials/head') %>
+    <script defer src="/js/home.js"></script>
+    <title>PokeDex</title>
+</head>
+<body>
+    <%- include('../views/partials/header') %>
+    <%- include('../views/partials/pokebelt') %>
+    <%- include('../views/partials/bag') %>
+    <main class="main">
+        <div class="wrapper">
+            <h1 class="ability-title">Abilities</h1>
+            <div class="abilities">
+                <div class="name-data"><%= name %></div>
+                <div class="desc-data"><%= effect_entries[1].effect %></div>
+                <div class="pokemon-list">
+                    <h4>Potential Pokemon</h4>
+                    <% pk.forEach(function(poke){ %>
+                        <div class="pokemon-data"><%= poke.pokemon.name %></div>
+                    <% }); %>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+</html>
